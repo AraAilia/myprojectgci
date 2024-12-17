@@ -6,6 +6,81 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MARTCODE</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="assets/css/style_home.css">
+  
+
+
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- 
+    - preload banner
+  -->
+  <link rel="preload" href="./assets/images/hero-banner.png" as="image">
+  
+  <style>
+ /* Kontainer untuk posisi tengah */
+.centered-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; /* Mengisi lebar layar */
+  max-width: 600px; /* Batas lebar form */
+  text-align: center; /* Tengah secara horizontal */
+  padding: 20px; /* Tambah sedikit ruang */
+}
+
+/* Tata letak form */
+.search-form {
+  display: flex;
+  gap: 10px; /* Jarak antar elemen */
+}
+
+/* Gaya input */
+.form-control {
+  flex: 1; /* Isi seluruh ruang yang tersedia */
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+/* Gaya tombol */
+.btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+
+</style>
+
 </head>
 
 <body id="top">
@@ -21,7 +96,7 @@
       <div class="overlay" data-overlay></div>
 
       <a href="#" class="logo">
-        <img src="./assets/images/logo.svg" width="160" height="50" alt="Footcap logo">
+        <img src="./assets/images/logomm.jpg" width="160" height="50" alt="Martcode logo">
       </a>
 
       <button class="nav-open-btn" data-nav-open-btn aria-label="Open Menu">
@@ -35,51 +110,96 @@
         </button>
 
         <a href="#" class="logo">
-          <img src="./assets/images/logo.svg" width="190" height="50" alt="Footcap logo">
+          <img src="./assets/images/logomm.jpg" width="190" height="50" alt="Martcode logo">
         </a>
 
         <ul class="navbar-list">
-
           <li class="navbar-item">
-            <a href="index" class="navbar-link">Home</a>
+            <a href="home" class="navbar-link">Home</a>
           </li>
-
           <li class="navbar-item">
-            <a href="about" class="navbar-link">About</a>
+            <a href="kategori" class="navbar-link">Kategori</a>
           </li>
-
           <li class="navbar-item">
-            <a href="produk" class="navbar-link">Products</a>
+            <a href="product" class="navbar-link">Download</a>
+          </li>
+          <li class="navbar-item">
+            <a href="mulaimenjual" class="navbar-link">Mulai Menjual</a>
           </li>
         </ul>
       
         <ul class="nav-action-list">
 
-          <li>
-            <button class="nav-action-btn">
-              <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+          <!-- Button -->
 
-              <span class="nav-action-text">Search</span>
-            </button>
-          </li>
+
+
+
+<!-- JavaScript to perform search -->
+<script>
+  function performSearch() {
+    // Get the search input and list items
+    const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+    const items = document.querySelectorAll('#searchList li');
+    
+    // Loop through each list item and hide those that don't match the search query
+    items.forEach(item => {
+      const itemName = item.textContent.toLowerCase();
+      if (itemName.includes(searchQuery)) {
+        item.style.display = '';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+<!-- JavaScript -->
+<script>
+  function performSearch() {
+    const query = document.getElementById('searchInput').value;
+    
+    // Cek jika input pencarian kosong
+    if (query.trim() === '') {
+      alert('Please enter a search query!');
+      return;
+    }
+
+    // Tampilkan hasil pencarian (di sini hanya alert untuk demonstrasi)
+    alert(`You searched for: ${query}`);
+    
+    // Di sini, Anda bisa melakukan pencarian ke server atau menyaring data berdasarkan query
+  }
+</script>
+
+
 
           <li>
-            <a href="#" class="nav-action-btn">
+            <a href="/login" class="nav-action-btn">
               <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
-
-              <span class="nav-action-text">Login / Register</span>
+              @if (auth()->check())
+              <span>Logout</span>
+                  
+              @else
+              <span>Login / Register</span>
+                  
+              @endif
             </a>
           </li>
-
+          
           <li>
-            <button class="nav-action-btn">
-              <ion-icon name="bag-outline" aria-hidden="true"></ion-icon>
-
-              <data class="nav-action-text" value="318.00">Basket: <strong>$318.00</strong></data>
-
-              <data class="nav-action-badge" value="4" aria-hidden="true">4</data>
-            </button>
-          </li>
+            <a href="/cart/index">
+                <button class="nav-action-btn">
+                    <!-- Icon keranjang -->
+                    <ion-icon name="cart-outline" aria-hidden="true"></ion-icon>
+                
+                    <!-- Informasi badge untuk jumlah item -->
+                    <span class="nav-action-badge" id="\card" aria-hidden="true">4</span>
+                </button>
+            </a>
+        </li>
+        
+          
 
         </ul>
 
@@ -87,42 +207,16 @@
 
     </div>
   </header>
+ 
+  <div class="container d-flex justify-content-center" style="margin-top: 20px;"> <!-- Jarak dengan navbar -->
+    <form class="search-form d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search Products" aria-label="Search">
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+  </div>
+  
 
-
-
-
-
-  <main>
-    <article>
-
-      <!-- 
-        - #HERO
-      -->
-
-      <section class="section hero" style="background-image: url('./assets/images/t.jpeg')">
-        <div class="container">
-
-          <h2 class="h1 hero-title">
-           <strong>Source Code Berkualitas</strong>
-          </h2>
-
-          <p class="hero-text">
-          "Dapatkan kode sumber siap pakai untuk mempercepat pengembangan proyek Anda."
-          </p>
-
-         
-
-            
-        </div>
-      </section>
-
-
-
-
-
-      
-
-
+ 
       <!-- 
       @include('home.product')
         - #PRODUCT
@@ -199,11 +293,7 @@
                     </li>
 
                     <li class="card-action-item">
-                      <button class="card-action-btn" aria-labelledby="card-label-4">
-                        <ion-icon name="repeat-outline"></ion-icon>
-                      </button>
 
-                      <div class="card-action-tooltip" id="card-label-4">Compare</div>
                     </li>
 
                   </ul>
@@ -258,11 +348,7 @@
                     </li>
 
                     <li class="card-action-item">
-                      <button class="card-action-btn" aria-labelledby="card-label-4">
-                        <ion-icon name="repeat-outline"></ion-icon>
-                      </button>
 
-                      <div class="card-action-tooltip" id="card-label-4">Compare</div>
                     </li>
 
                   </ul>
@@ -319,11 +405,7 @@
                     </li>
 
                     <li class="card-action-item">
-                      <button class="card-action-btn" aria-labelledby="card-label-4">
-                        <ion-icon name="repeat-outline"></ion-icon>
-                      </button>
 
-                      <div class="card-action-tooltip" id="card-label-4">Compare</div>
                     </li>
 
                   </ul>
@@ -378,11 +460,7 @@
                     </li>
 
                     <li class="card-action-item">
-                      <button class="card-action-btn" aria-labelledby="card-label-4">
-                        <ion-icon name="repeat-outline"></ion-icon>
-                      </button>
 
-                      <div class="card-action-tooltip" id="card-label-4">Compare</div>
                     </li>
 
                   </ul>
@@ -406,232 +484,18 @@
             <li class="product-item">
               <div class="product-card" tabindex="0">
 
-               
-                
-
-                
-
-              </div>
-            </li>
-
-            
-
-          </ul>
-
-        </div>
-      </section>
-
-
-
-
-
-     
-
-
-      <!-- 
-        - #SERVICE
-      -->
-
-      <section class="section service">
-        <div class="container">
-
-          <ul class="service-list">
-
-            <li class="service-item">
-              <div class="service-card">
-
-                <div class="card-icon">
-                  <img src="./assets/images/service-1.png" width="53" height="28" loading="lazy" alt="Service icon">
-                </div>
-
-                <div>
-                  <h3 class="h4 card-title">Free Shiping</h3>
-
-                  <p class="card-text">
-                    All orders over <span>$150</span>
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-card">
-
-                <div class="card-icon">
-                  <img src="./assets/images/service-2.png" width="43" height="35" loading="lazy" alt="Service icon">
-                </div>
-
-                <div>
-                  <h3 class="h4 card-title">Quick Payment</h3>
-
-                  <p class="card-text">
-                    100% secure payment
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-card">
-
-                <div class="card-icon">
-                  <img src="./assets/images/service-3.png" width="40" height="40" loading="lazy" alt="Service icon">
-                </div>
-
-                <div>
-                  <h3 class="h4 card-title">24/7 Support</h3>
-
-                  <p class="card-text">
-                    Get Quick Support
-                  </p>
-                </div>
-
               </div>
             </li>
 
           </ul>
 
-        </div>
-      </section>
-
-
-
-
-
-      <!-- 
-        - #INSTA POST
-      -->
-
-      <section class="section insta-post">
-
-        <ul class="insta-post-list has-scrollbar">
-
-          <li class="insta-post-item">
-            <img src="./assets/images/bussi.jpg" width="100" height="100" loading="lazy" alt="Instagram post"
-              class="insta-post-banner image-contain">
-
-            <a href="#" class="insta-post-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li class="insta-post-item">
-            <img src="./assets/images/portal.jpg" width="100" height="100" loading="lazy" alt="Instagram post"
-              class="insta-post-banner image-contain">
-
-            <a href="#" class="insta-post-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li class="insta-post-item">
-            <img src="./assets/images/webschool.jpg" width="100" height="100" loading="lazy" alt="Instagram post"
-              class="insta-post-banner image-contain">
-
-            <a href="#" class="insta-post-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li class="insta-post-item">
-            <img src="./assets/images/ecom.jpg" width="100" height="100" loading="lazy" alt="Instagram post"
-              class="insta-post-banner image-contain">
-
-            <a href="#" class="insta-post-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li class="insta-post-item">
-            <img src="./assets/images/bb.jpg" width="100" height="100" loading="lazy" alt="Instagram post"
-              class="insta-post-banner image-contain">
-
-            <a href="#" class="insta-post-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li class="insta-post-item">
-            <img src="./assets/images/ii.jpg" width="100" height="100" loading="lazy" alt="Instagram post"
-              class="insta-post-banner image-contain">
-
-            <a href="#" class="insta-post-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li class="insta-post-item">
-            <img src="./assets/images/uu.jpg" width="100" height="100" loading="lazy" alt="Instagram post"
-              class="insta-post-banner image-contain">
-
-            <a href="#" class="insta-post-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li class="insta-post-item">
-            <img src="./assets/images/ecom.jpg" width="100" height="100" loading="lazy" alt="Instagram post"
-              class="insta-post-banner image-contain">
-
-            <a href="#" class="insta-post-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </section>
-
-    </article>
-  </main>
-
-
-
-
-
-  <!-- 
-  @include('home.footer')
-    - #FOOTER
-  -->
-
+          
   <footer class="footer">
 
     <div class="footer-top section">
       <div class="container">
 
-        <div class="footer-brand">
-
-          <a href="#" class="logo">
-            <img src="77.jpg/assets/images/" width="160" height="50" alt="Footcap logo">
-          </a>
-
-          <ul class="social-list">
-
-            <li>
-              <a href="#" class="social-link">
-                <ion-icon name="logo-facebook"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="social-link">
-                <ion-icon name="logo-twitter"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="social-link">
-                <ion-icon name="logo-pinterest"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="social-link">
-                <ion-icon name="logo-linkedin"></ion-icon>
-              </a>
-            </li>
+       
 
           </ul>
 
@@ -721,43 +585,7 @@
 
           </ul>
 
-          <div class="footer-list">
-
-            <p class="footer-list-title">Opening Time</p>
-
-            <table class="footer-table">
-              <tbody>
-
-                <tr class="table-row">
-                  <th class="table-head" scope="row">Mon - Tue:</th>
-
-                  <td class="table-data">8AM - 10PM</td>
-                </tr>
-
-                <tr class="table-row">
-                  <th class="table-head" scope="row">Wednesday:</th>
-
-                  <td class="table-data">8AM - 7PM</td>
-                </tr>
-
-                <tr class="table-row">
-                  <th class="table-head" scope="row">Friday:</th>
-
-                  <td class="table-data">7AM - 12PM</td>
-                </tr>
-
-                <tr class="table-row">
-                  <th class="table-head" scope="row">Saturday:</th>
-
-                  <td class="table-data">9AM - 8PM</td>
-                </tr>
-
-                <tr class="table-row">
-                  <th class="table-head" scope="row">Sunday:</th>
-
-                  <td class="table-data">Closed</td>
-                </tr>
-
+          
               </tbody>
             </table>
 
@@ -777,48 +605,10 @@
       </div>
     </div>
 
-  </footer>
 
-
-
-
-
-  <!-- 
-    - #GO TO TOP
-  -->
-
-  <a href="#top" class="go-top-btn" data-go-top>
-    <ion-icon name="arrow-up-outline"></ion-icon>
-  </a>
-
-
-
-<!-- 
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
-
-  <!-- 
-    - custom css link
-  -->
-  <link rel="stylesheet" href="assets/css/style_home.css">
-
-  <!-- 
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
-    rel="stylesheet">
-
-  <!-- 
-    - preload banner
-  -->
-  <link rel="preload" href="./assets/images/hero-banner.png" as="image">
-
-
-  <!-- 
+        </div>
+      </section>
+       <!-- 
     - custom js link
   -->
   <script src="./assets/js/script.js"></script>

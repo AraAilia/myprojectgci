@@ -4,11 +4,16 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\HomeController;
-
-
+use App\Http\Controllers\PembeliController;
+use App\Http\Controllers\PenjualContoller;
 
 route::get('/',[HomeController::class,'home']);
+route::get('about',[HomeController::class,'about']);
 
+
+route::get('pembeli',[PembeliController::class,'index']);
+
+route::get('penjual',[PenjualContoller::class,'index']);
 Route::get('/dashboard', function () {
     return view('dashboard');
     
