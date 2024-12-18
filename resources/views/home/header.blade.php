@@ -28,11 +28,11 @@
           </li>
 
           <li class="navbar-item">
-            <a href="#" class="navbar-link">About</a>
+            <a href="about" class="navbar-link">About</a>
           </li>
 
           <li class="navbar-item">
-            <a href="#" class="navbar-link">Products</a>
+            <a href="product" class="navbar-link">Products</a>
           </li>
 
           <li class="navbar-item">

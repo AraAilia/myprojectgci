@@ -161,3 +161,44 @@ body {
     width: 20px;
     margin: 0 auto;
 }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff; /* Latar belakang tabel putih */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+    margin-bottom: 20px;
+    border-radius: 10px; /* Membuat sudut tabel membulat */
+    overflow: hidden;
+}
+table, th, td {
+    border: 2px solid #c93030; /* Warna garis merah */
+    padding: 12px; /* Padding lebih besar */
+}
+th {
+    background-color: #c93434; /* Header merah tua */
+    color: #ffffff; /* Teks putih untuk header */
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+td {
+    font-size: 1em; /* Ukuran font lebih besar */
+}
+tr:hover {
+    background-color: #fdecea; /* Warna hover */
+    transition: background-color 0.3s ease; /* Efek transisi */
+}
+button.btn-edit {
+    background-color: #ffffff; /* Tombol putih */
+    border: 2px solid #c93434; /* Border merah */
+    color: #c93434;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+button.btn-edit:hover {
+    background-color: #c93434; /* Merah tua saat hover */
+    color: #ffffff; /* Teks putih saat hover */
+}

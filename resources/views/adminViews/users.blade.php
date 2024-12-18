@@ -19,16 +19,23 @@
         }
     </style>
 
-<h2>Daftar Proyek Source Code</h2>
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Data Pengguna</h1>
 
-<table>
-    <thead>
+   
+
+
+    <div class="">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-primary">
         <tr>
             <th>No</th>
             <th>Nama</th>
             <th>Email</th>
             <th>Role</th>
             <th>Aksi</th>
+
         </tr>
     </thead>
     <tbody>
@@ -42,10 +49,56 @@
                     <button class="btn btn-edit" data-bs-toggle="modal" data-bs-target="#editUserModal{{ $user->id }}">
                         <i class="bi bi-pencil-square"></i> 
                     </button>
+                    <button class="btn btn-success btn-square" data-bs-toggle="modal" data-bs-target="#acceptUserModal{{ $user->id }}">
+                        <i class="bi bi-check-circle"></i> Terima
+                    </button>
+                    
+                    <div class="modal fade" id="acceptUserModal{{ $user->id }}" tabindex="-1" aria-labelledby="acceptUserModalLabel{{ $user->id }}" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="acceptUserModalLabel{{ $user->id }}">Konfirmasi Aksi Pengguna</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Apakah kamu yakin ingin melakukan aksi terhadap pengguna dengan nama <strong>{{ $user->name }}</strong>?
+                                </div>
+                                <div class="modal-footer">
+                                    <!-- Tombol Terima -->
+                                    <form action="{{ url('/accept-user/'.$user->id) }}" method="POST">
+                                     @csrf
+                                     <button type="submit" class="btn btn-success">Ya, Terima</button>
+                                    </form>
+
+                    
+                                    <!-- Tombol Tolak -->
+                                    <form action="/reject-user/{{ $user->id }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Tolak</button>
+                                    </form>
+                    
+                                    <!-- Tombol Blokir -->
+                                    <form action="/block-user/{{ $user->id }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-warning">Blokir</button>
+                                    </form>
+                    
+                                    <!-- Tombol Batal -->
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    </div>
+                    
+                  
+
                 </td>
             </tr>
             <!-- Modal Edit User -->
             <div class="modal fade" id="editUserModal{{ $user->id }}" tabindex="-1" aria-labelledby="editUserModalLabel{{ $user->id }}" aria-hidden="true">
+                
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -86,6 +139,11 @@
                 </div>
             </div>
         @endforeach
+
+      
+    
+        <!-- Hubungkan File JavaScript -->
+        <script src="script.js"></script>
     </tbody>
 </table>
 

@@ -25,7 +25,6 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         // Autentikasi pengguna
-        dd('test');
         $request->authenticate();
     
         // Regenerasi session untuk keamanan
@@ -34,11 +33,15 @@ class AuthenticatedSessionController extends Controller
         // Cek role pengguna dan arahkan sesuai role
         if ($request->user()->role === 'admin') {
             return redirect("/admin/dashboard"); // Arahkan ke admin dashboard
+        }else if($request->user()->role === 'pembeli') {
+            return redirect('/mulaimenjual');
+        }else {
+            return redirect("/login");
         }
     
-        if ($request->user()->role === 'pembeli') {
-            return redirect('/'); // Arahkan ke halaman utama (home) untuk pembeli
-        }
+        // if ($request->user()->role === 'pembeli') {
+        //     return redirect('/mulaimenjual'); // Arahkan ke halaman utama (home) untuk pembeli
+        // }
     
         // Default redirect jika role tidak dikenali, arahkan ke dashboard pengguna biasa
         return redirect()->intended(route('dashboard'));
