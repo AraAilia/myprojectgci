@@ -22,83 +22,55 @@
   <link rel="preload" href="./assets/images/hero-banner.png" as="image">
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background-color: #f4f4f4;
-      padding: 20px;
-    }
+  body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
 
-    h1, p {
-      text-align: center;
-      margin: 0 0 10px 0;
-      color: #333;
-    }
-    h2, p {
-      text-align: center;
-      margin: 0 0 10px 0;
-      color: #333;
-    }
+.container {
+  width: 400px;
+  margin: 5px auto;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-    .icon-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 60px;
-      margin-top: 20px;
-    }
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
 
-    .icon-container {
-      text-align: center;
-    }
+.form-group {
+  margin-bottom: 20px;
+}
 
-    .icon-container i {
-      font-size: 100px;
-      color: #333;
-      transition: transform 0.2s ease, color 0.2s ease;
-      cursor: pointer;
-    }
+label {
+  display: block;
+  margin-bottom: 10px;
+}
 
-    .icon-container i:hover {
-      transform: scale(1.1);
-      color: #007bff;
-    }
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
-    .icon-container p {
-      margin-top: 10px;
-      font-size: 1.5rem;
-      color: #555;
-    }
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-    .footer-bottom {
-      background-color: #333;
-      color: #fff;
-      padding: 30px 20px;
-      text-align: center;
-      margin-top: 150px;
-      width: 100%;
-    }
-
-    .copyright {
-      margin: 0;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .copyright-link {
-      color: #28a745;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .copyright-link:hover {
-      text-decoration: underline;
-    }
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
   </style>
 
 </head>
@@ -163,10 +135,48 @@
   </header>
 
 
-  <!-- Scripts -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<body>
+
+  <header>
+    <h1>Profil Saya</h1>
+  </header>
+
+  <div class="container">
+    <h2>Isi Data Diri</h2>
+    <form>
+      <div class="form-group">
+        <label for="nama">Nama Lengkap:</label>
+        <input type="text" id="nama" name="nama" required>
+      </div>
+      <div class="form-group">
+        <label for="toko">Nama Toko:</label>
+        <textarea id="toko" name="toko" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="no_hp">No. HP:</label>
+        <input type="text" id="no_hp" name="no_hp" required>
+      </div>
+      <div class="form-group">
+        <label for="jenis_bank">Jenis Bank:</label>
+        <select id="jenis_bank" name="jenis_bank" required>
+          <option value="">Pilih Jenis Bank</option>
+          <option value="bri">Bank BRI</option>
+          <option value="mandiri">Bank Mandiri</option>
+          <option value="bca">Bank BCA</option>
+          <option value="lainnya">Lainnya</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="no_rek">No. Rekening:</label>
+        <input type="text" id="no_rek" name="no_rek" required>
+      </div>
+      <button type="submit">Simpan</button>
+    </form>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2024 MartCode. All rights reserved.</p>
+  </div>
 
 </body>
 

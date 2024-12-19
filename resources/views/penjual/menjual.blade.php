@@ -7,19 +7,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MARTCODE</title>
 
-  <!-- favicon -->
+  <!-- Favicon -->
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
 
-  <!-- custom css link -->
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/style_home.css">
 
-  <!-- google font link -->
+  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <!-- preload banner -->
+  <!-- Preload Banner -->
   <link rel="preload" href="./assets/images/hero-banner.png" as="image">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
   <style>
     .btn-add {
@@ -38,10 +41,10 @@
       background-color: #218838;
     }
 
-    /* Table Custom Styling */
     .table-custom {
       border-collapse: collapse;
       width: 100%;
+      margin: 20px 0;
     }
 
     .table-custom th {
@@ -68,16 +71,44 @@
     .table-custom tbody tr:hover {
       background-color: #e8f5fe;
     }
-</style>
 
+    .table-responsive {
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+
+    .btn-custom {
+      padding: 5px 10px;
+      font-size: 0.875rem;
+      border-radius: 4px;
+    }
+
+    .btn-warning {
+      background-color: #ffc107;
+      color: #212529;
+      border: none;
+    }
+
+    .btn-danger {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+    }
+
+    .btn-warning:hover {
+      background-color: #e0a800;
+    }
+
+    .btn-danger:hover {
+      background-color: #c82333;
+    }
+  </style>
 </head>
 
 <body id="top">
-
   <!-- Header -->
   <header class="header" data-header>
     <div class="container">
-
       <div class="overlay" data-overlay></div>
 
       <a href="#" class="logo">
@@ -89,7 +120,6 @@
       </button>
 
       <nav class="navbar" data-navbar>
-
         <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
           <ion-icon name="close-outline"></ion-icon>
         </button>
@@ -107,104 +137,76 @@
 
         <ul class="nav-action-list">
           <li>
-            <button class="nav-action-btn">
-              <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
-              <span class="nav-action-text">Search</span>
-            </button>
-          </li>
-          <li>
             <a href="#" class="nav-action-btn">
               <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
               <span class="nav-action-text">Login / Register</span>
             </a>
           </li>
-          <li>
-            <button class="nav-action-btn">
-              <ion-icon name="bag-outline" aria-hidden="true"></ion-icon>
-              <data class="nav-action-text" value="318.00">Basket: <strong>$318.00</strong></data>
-              <data class="nav-action-badge" value="4" aria-hidden="true">4</data>
-            </button>
-          </li>
         </ul>
-
       </nav>
     </div>
   </header>
 
+  <!-- Main Content -->
   <div class="content">
-  <button class="btn-add" onclick="location.href='unggah.php';">Tambah Data Baru</button>
-</div>
-
-  <div class="table-responsive">
-      <table class="table table-bordered table-striped table-custom">
-        <colgroup>
-          <col style="width: 5%;">
-          <col style="width: 20%;">
-          <col style="width: 15%;">
-          <col style="width: 35%;">
-          <col style="width: 10%;">
-          <col style="width: 10%;">
-          <col style="width: 10%;">
-        </colgroup>
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Nama</th>
-            <th>Kategori</th>
-            <th>Deskripsi</th>
-            <th>Harga</th>
-            <th>Image</th>
-            <th>Aksi</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Sepatu Nike</td>
-            <td>Olahraga</td>
-            <td>Sepatu olahraga yang nyaman untuk segala medan.</td>
-            <td>$100</td>
-            <td>
-              <img src="path_to_nike_image" alt="Sepatu Nike">
-            </td>
-            <td>
-              <button class="btn btn-warning btn-custom">Edit</button>
-              <button class="btn btn-danger btn-custom">Hapus</button>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Sepatu Adidas</td>
-            <td>Olahraga</td>
-            <td>Sepatu yang cocok untuk berlari dan aktivitas sehari-hari.</td>
-            <td>$120</td>
-            <td>
-              <img src="path_to_adidas_image" alt="Sepatu Adidas">
-            </td>
-            <td>
-              <button class="btn btn-warning btn-custom">Edit</button>
-              <button class="btn btn-danger btn-custom">Hapus</button>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Sepatu Puma</td>
-            <td>Kasual</td>
-            <td>Sepatu dengan desain kasual yang stylish.</td>
-            <td>$90</td>
-            <td>
-              <img src="path_to_puma_image" alt="Sepatu Puma">
-            </td>
-            <td>
-              <button class="btn btn-warning btn-custom">Edit</button>
-              <button class="btn btn-danger btn-custom">Hapus</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <button class="btn-add" onclick="location.href='unggah.php';">Tambah Data Baru</button>
   </div>
 
+  <div class="table-responsive">
+    <table class="table table-custom">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Nama</th>
+          <th>Kategori</th>
+          <th>Deskripsi</th>
+          <th>Harga</th>
+          <th>Image</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Sepatu Nike</td>
+          <td>Olahraga</td>
+          <td>Sepatu olahraga yang nyaman untuk segala medan.</td>
+          <td>$100</td>
+          <td><img src="path_to_nike_image" alt="Sepatu Nike"></td>
+          <td>
+            <button class="btn btn-warning btn-custom">Edit</button>
+            <button class="btn btn-danger btn-custom">Hapus</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Sepatu Adidas</td>
+          <td>Olahraga</td>
+          <td>Sepatu yang cocok untuk berlari dan aktivitas sehari-hari.</td>
+          <td>$120</td>
+          <td><img src="path_to_adidas_image" alt="Sepatu Adidas"></td>
+          <td>
+            <button class="btn btn-warning btn-custom">Edit</button>
+            <button class="btn btn-danger btn-custom">Hapus</button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Sepatu Puma</td>
+          <td>Kasual</td>
+          <td>Sepatu dengan desain kasual yang stylish.</td>
+          <td>$90</td>
+          <td><img src="path_to_puma_image" alt="Sepatu Puma"></td>
+          <td>
+            <button class="btn btn-warning btn-custom">Edit</button>
+            <button class="btn btn-danger btn-custom">Hapus</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Scripts -->
   <script>
     const navOpenBtn = document.querySelector('[data-nav-open-btn]');
     const navCloseBtn = document.querySelector('[data-nav-close-btn]');
@@ -218,12 +220,8 @@
       navbar.setAttribute('data-navbar', 'close');
     });
   </script>
-
-  <!-- Scripts -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
 </body>
 
 </html>

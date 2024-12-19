@@ -39,7 +39,6 @@
         </a>
 
         <ul class="navbar-list">
-
           <li class="navbar-item">
             <a href="index" class="navbar-link">Home</a>
           </li>
@@ -51,10 +50,9 @@
           <li class="navbar-item">
             <a href="produk" class="navbar-link">Products</a>
           </li>
+          
         </ul>
-      
         <ul class="nav-action-list">
-
           <li>
             <button class="nav-action-btn">
               <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
