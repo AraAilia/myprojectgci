@@ -26,6 +26,7 @@ class MenjualController extends Controller
     {
         return view('penjual.menjual');
     }
+    
     public function isidata()
     {
         return view('penjual.isidata');
@@ -45,7 +46,7 @@ class MenjualController extends Controller
         // Simpan data ke database
         $userDetail = new Penjual();
         $userDetail->user_id = Auth::id(); // Ambil user_id dari user yang sedang login
-        $userDetail->nama = $request->input('nama');
+        $userDetai ->nama = $request->input('nama');
         $userDetail->toko = $request->input('toko');
         $userDetail->nomor_hp = $request->input('nomor_hp');
         $userDetail->bank = $request->input('bank');

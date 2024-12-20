@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use PhpParser\Node\Stmt\Case_;
 
 return new class extends Migration
 {
@@ -18,10 +19,11 @@ return new class extends Migration
             $table->string('nama');
             $table->text('deskripsi');
             $table->string('image_path');
-            $table->decimal('harga',total:8,places: 2);
-            $table->foreign('penjual_id')->references('id')->on('penjual');
-            $table->foreign('kategori_id')->references('id')->on('kategori');
+            $table->integer('harga');
             $table->timestamps();
+
+            $table->foreign('penjual_id')->references('id')->on('penjual')->onDelete('cascade');
+            $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade');
         });
     }
 

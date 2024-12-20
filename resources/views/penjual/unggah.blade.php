@@ -59,7 +59,7 @@
   <div class="form-container">
     <h1>Unggah Item ke Template Situs</h1>
     <hr>
-    <form action="{{ route('produk.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="#" method="POST" enctype="multipart/form-data">
       <div class="form-group">
         <label for="produk">Nama</label>
         <input type="text" class="form-control" name="nama" placeholder="Nama Produk" required>

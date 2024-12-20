@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenjualController;
 use App\Http\Controllers\PembeliController;
 use App\Http\Controllers\PenjualController;
+use App\Http\Controllers\ProdukController;
 
 route::get('/',[HomeController::class,'home']);
 route::get('about',[HomeController::class,'about']);
@@ -20,7 +21,7 @@ route::get('/datadiri',[MenjualController::class,'datadiri']);
 route::get('/isidata',[MenjualController::class,'isidata'])->name('isidata.form');
 route::post('/isidata',[MenjualController::class,'store'])->name('isidata.post');
 route::get('/ulasan',[MenjualController::class,'ulasan']);
-route::get('/unggah',[MenjualController::class,'unggah']);
+route::get('/unggah',[ProdukController::class,'index']);
 
 
 Route::get('/dashboard', function () {

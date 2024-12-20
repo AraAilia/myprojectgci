@@ -149,7 +149,7 @@
 
   <!-- Main Content -->
   <div class="content">
-    <button class="btn-add" onclick="location.href='unggah.php';">Tambah Data Baru</button>
+    <button class="btn-add" onclick="location.href='/unggah';">Tambah Data Baru</button>
   </div>
 
   <div class="table-responsive">
@@ -191,17 +191,6 @@
           </td>
         </tr>
         <tr>
-          <td>3</td>
-          <td>Sepatu Puma</td>
-          <td>Kasual</td>
-          <td>Sepatu dengan desain kasual yang stylish.</td>
-          <td>$90</td>
-          <td><img src="path_to_puma_image" alt="Sepatu Puma"></td>
-          <td>
-            <button class="btn btn-warning btn-custom">Edit</button>
-            <button class="btn btn-danger btn-custom">Hapus</button>
-          </td>
-        </tr>
       </tbody>
     </table>
   </div>
