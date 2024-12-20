@@ -6,26 +6,22 @@ use Illuminate\Http\Request;
 
 class PembeliController extends Controller
 {
-    public function index()
+   
+    public function mulaimenjual()
     {
-        return view ('Pembeli.index');
+        return view('pembeli.mulaimenjual');
     }
     public function kategori()
     {
-        return view ('PembeliViews.kategori');
+        return view('pembeli.kategori');
     }
-    public function mulaimenjual()
+    public function unduh()
     {
-        return view ('PembeliViews.mulaimenjual');
+        return view('pembeli.unduh');
     }
-    public function keranjang()
+    public function index()
     {
-        return view ('PembeliViews.keranjang');
+        // Menampilkan dashboard pembeli
+        return view('pembeli.index'); // Pastikan view ini ada di resources/views/pembeli/index.blade.php
     }
-    public function profile()
-    {
-        return view ('PembeliViews.profile');
-    }
-   
-
 }

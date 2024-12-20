@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Kategori;
 
 class KategoriController extends Controller
 {
+    
     public function index()
     {
         $kategoris = Kategori::all(); // Mengambil semua data kategori
-        return view('kategori.index', compact('kategoris')); // Mengirimkan data ke view
+        return view('pembeli.kategori', compact('kategoris')); // Mengirimkan data ke view
     }
 
     // Menampilkan form untuk membuat kategori baru
@@ -62,4 +64,5 @@ class KategoriController extends Controller
 
         return redirect()->route('kategori.index')->with('success', 'Kategori berhasil dihapus!');
     }
+    
 }

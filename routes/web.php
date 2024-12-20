@@ -26,8 +26,10 @@ route::get('/isidata',[PenjualController::class,'isidata'])->name('isidata.form'
 route::post('/isidata',[PenjualController::class,'store'])->name('isidata.post');
 route::get('/ulasan',[PenjualController::class,'ulasan']);
 route::get('/unggah',[PenjualController::class,'unggah']);
+Route::post('/admin/penjual', [PenjualController::class, 'store'])->name('isidata.post');
 
-route::get('/pembeli',[PembeliController::class,'index']);
+// route::get('/pembeli',[PembeliController::class,'index']);
+
 Route::get('/pembeli', [PembeliController::class, 'index'])->name('pembeli.index');
 route::get('/kategori',[PembeliController::class,'kategori']);
 route::get('/profile-index',[PembeliController::class,'profile']);
@@ -78,6 +80,7 @@ route::get('/admin/dashboard/barang',function(){
 });
 route::get('/admin/dashboard/users',[AdminController::class,'users']);
 route::get('/admin/dashboard/total',[AdminController::class,'total']);
+route::get('/admin/dashboard/kategoriproduk',[AdminController::class,'kategoriproduk']);
 route::put('/users/{id}/update',[AdminController::class,'update'])->name('users-update');
 route::get('/admin/dashboard/produk',function(){
     return view('adminViews.components.produk');
@@ -106,6 +109,10 @@ Route::get('/auth/register', function () {
     return view('auth.register');
 })->name('auth.register');
 
+Route::get('/pembeli/dashboard', [PembeliController::class, 'index'])->name('pembeli.index');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
 
 
 
@@ -132,4 +139,5 @@ Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name
 
 
 Route::resource('kategori', KategoriController::class);
+Route::delete('admin/dashboard/kategoriproduk/{id}', [KategoriController::class, 'destroy']);
 

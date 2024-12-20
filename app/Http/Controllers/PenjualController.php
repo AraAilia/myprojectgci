@@ -29,6 +29,9 @@ class PenjualController extends Controller
     }
     public function store(Request $request)
     {
+    
+    
+    
         // Validasi input
         $request->validate([
             'nama' => 'required|string|max:255',
@@ -53,5 +56,9 @@ class PenjualController extends Controller
             'message' => 'Data berhasil ditambahkan',
             'data' => $userDetail
         ], 201);
+             // Redirect ke halaman admin dengan pesan sukses
+             return redirect()->route('adminViews.dashboard.penjual')->with('success', 'Data penjual berhasil disimpan.');
     }
+    
+    
 }

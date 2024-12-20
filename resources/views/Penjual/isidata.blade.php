@@ -57,6 +57,9 @@ button[type="submit"]:hover {
 <body>
   <div class="container">
     <h1>Isi Data Diri</h1>
+    @if (session('success'))
+    <div class="alert alert-success">{{ session('success') }}</div>
+@endif
     <form action="{{ route('isidata.post') }}"method="POST">
       @method('POST')
       @csrf

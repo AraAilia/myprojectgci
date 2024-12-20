@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Models\Produk;
 use App\Models\Penjual;
 use App\Models\Pemesanan;
+use App\Models\Kategori;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,10 @@ class AdminController extends Controller
         $users = User::all();
         return view('adminViews.users',compact('users'));
     }
-    
+    public function kategoriproduk() {
+        $kategoris = Kategori::all(); // Mengambil semua data kategori
+        return view('adminViews.kategoriproduk', compact('kategoris')); // Mengirimkan data ke view
+    }
 
     public function produk(){
     $produk = Produk::all();
@@ -30,12 +34,6 @@ class AdminController extends Controller
         return view('adminViews.penjual',compact('penjual'));  
         }
 
-        public function pemesanan(){
-            $pemesanan = Pemesanan::all();
-            return view('adminViews.pemesanan',compact('pemesanan'));  
-            }
-
-    
 
     public function update(Request $request, $id)
     {
