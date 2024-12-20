@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\HomeController;
+<<<<<<< HEAD
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PenjualController;
 use App\Http\Controllers\PembeliController;
@@ -52,6 +53,27 @@ route::get('/mulaimenjual',[PembeliController::class,'mulaimenjual']);
 //     route::get('/jadipenjual',[PembeliController::class,'jadipenjual']);
 //     route::get('/mulaimenjual',[PembeliController::class,'mulaimenjual']);
 // });
+=======
+use App\Http\Controllers\MenjualController;
+use App\Http\Controllers\PembeliController;
+use App\Http\Controllers\PenjualController;
+use App\Http\Controllers\ProdukController;
+
+route::get('/',[HomeController::class,'home']);
+route::get('about',[HomeController::class,'about']);
+route::get('produk',[HomeController::class,'produk']);
+
+route::get('pembeli',[PembeliController::class,'index']);
+
+route::get('/penjual',[MenjualController::class,'index']);
+route::get('/menjual',[MenjualController::class,'menjual']);
+route::get('/datadiri',[MenjualController::class,'datadiri']);
+route::get('/isidata',[MenjualController::class,'isidata'])->name('isidata.form');
+route::post('/isidata',[MenjualController::class,'store'])->name('isidata.post');
+route::get('/ulasan',[MenjualController::class,'ulasan']);
+route::get('/unggah',[ProdukController::class,'index']);
+
+>>>>>>> a550c6faa6725be05dc0db278ece1e4eeb810fbf
 
 Route::get('/dashboard', function () {
     return view('dashboard');
