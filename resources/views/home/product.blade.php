@@ -5,47 +5,100 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Martcode</title>
+  <title>MARTCODE</title>
 
-  <!-- 
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
 
-  <!-- 
-    - custom css link
-  -->
-  <link rel="stylesheet" href="assets/css/style.css">
+    h1, p {
+      text-align: center;
+      margin: 0 0 30px 0;
+      color: #333;
+    }
+    h2, p {
+      text-align: center;
+      margin: 0 0 10px 0;
+      color: #333;
+    }
 
-  <!-- 
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
-    rel="stylesheet">
+    .icon-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      margin-top: 20px;
+    }
 
-  <!-- 
-    - preload banner
-  -->
-  <link rel="preload" href="./assets/images/hero-banner.png" as="image">
+    .icon-container {
+      text-align: center;
+    }
+
+    .icon-container i {
+      font-size: 100px;
+      color: #333;
+      transition: transform 0.2s ease, color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .icon-container i:hover {
+      transform: scale(1.1);
+      color: #007bff;
+    }
+
+    .icon-container p {
+      margin-top: 10px;
+      font-size: 1.5rem;
+      color: #555;
+    }
+
+    .footer-bottom {
+      background-color: #333;
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+      margin-top: 150px;
+      width: 100%;
+    }
+
+    .copyright {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .copyright-link {
+      color: #28a745;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .copyright-link:hover {
+      text-decoration: underline;
+    }
+  </style>
 
 </head>
 
 <body id="top">
 
-  <!-- 
-    - #HEADER
-  -->
-
+  <!-- Header -->
   <header class="header" data-header>
     <div class="container">
 
       <div class="overlay" data-overlay></div>
 
       <a href="#" class="logo">
-        <img src="./assets/images/logomm.jpg" width="160" height="50" alt="Footcap logo">
+        <img src="./assets/images/logo.svg" width="160" height="50" alt="Footcap logo">
       </a>
 
       <button class="nav-open-btn" data-nav-open-btn aria-label="Open Menu">
@@ -63,62 +116,32 @@
         </a>
 
         <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <a href="#" class="navbar-link">Home</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#" class="navbar-link">About</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="product" class="navbar-link">Product</a>
-          </li>
-
-       
-
+          <li class="navbar-item"><a href="penjual" class="navbar-link">Dashboard</a></li>
+          <li class="navbar-item"><a href="datadiri" class="navbar-link">Profil saya</a></li>
+          <li class="navbar-item"><a href="menjual" class="navbar-link">Upload</a></li>
+          <li class="navbar-item"><a href="ulasan" class="navbar-link">Ulasan</a></li>
         </ul>
 
         <ul class="nav-action-list">
-
           <li>
             <button class="nav-action-btn">
               <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
-
               <span class="nav-action-text">Search</span>
             </button>
           </li>
-
           <li>
             <a href="#" class="nav-action-btn">
               <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
-
               <span class="nav-action-text">Login / Register</span>
             </a>
           </li>
           <li>
-            <a href="/login" class="nav-action-btn">
-              <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
-              @if (auth()->check())
-              <span>Logout</span>
-                  
-              @else
-              <span>Login / Register</span>
-                  
-              @endif
-            </a>
-          </li>
-          <li>
             <button class="nav-action-btn">
-              <!-- Icon keranjang -->
-              <ion-icon name="cart-outline" aria-hidden="true"></ion-icon>
-          
-              <!-- Informasi badge untuk jumlah item -->
-              <span class="nav-action-badge" value="4" aria-hidden="true">4</span>
+              <ion-icon name="bag-outline" aria-hidden="true"></ion-icon>
+              <data class="nav-action-text" value="318.00">Basket: <strong>$318.00</strong></data>
+              <data class="nav-action-badge" value="4" aria-hidden="true">4</data>
             </button>
           </li>
-
         </ul>
 
       </nav>
@@ -126,330 +149,95 @@
     </div>
   </header>
 
-
-
-
-
-  <main>
-    <article>
-
-      <!-- 
-        - #HERO
-      -->
-
-      <section class="section hero" style="background-image: url('./assets/images/k.png')">
-        <div class="container">
-
-          <h2 class="h1 hero-title">
-            <strong>Source Code Berkualitas</strong>
-          </h2>
-
-          <p class="hero-text">
-            Dapatkan kode sumber siap pakai untuk mempercepat pengembangan proyek Anda.
-          </p>
-
-         
-
-        </div>
-      </section>
-
-      <!-- 
-        - #PRODUCT
-      -->
-
-      <section class="section product">
-        <div class="container">
-
-          <h2 class="h2 section-title">Bestsellers Products</h2>
-
-          <ul class="filter-list">
-
-            <li>
-              <button class="filter-btn  active">All</button>
-            </li>
-
-            <li>
-              <button class="filter-btn">Blog</button>
-            </li>
-
-            <li>
-              <button class="filter-btn">Website pendidikan</button>
-            </li>
-
-            <li>
-              <button class="filter-btn">Ecommerce</button>
-            </li>
-
-            <li>
-              <button class="filter-btn">Website Bisnis</button>
-            </li>
-
-            <li>
-              <button class="filter-btn">Portal Berita</button>
-            </li>
-
-          </ul>
-
-          <ul class="product-list">
-
-            <li class="product-item">
-              <div class="product-card" tabindex="0">
-
-                <figure class="card-banner">
-                  <img src="./assets/images/webschool.jpg" width="312" height="350" loading="lazy"
-                    alt="Running Sneaker Shoes" class="image-contain">
-
-                  <div class="card-badge">New</div>
-
-                  <ul class="card-action-list">
-
-                    <li class="card-action-item">
-                      <button class="card-action-btn" aria-labelledby="card-label-1">
-                        <ion-icon name="cart-outline"></ion-icon>
-                      </button>
-
-                      <div class="card-action-tooltip" id="card-label-1">Add to Cart</div>
-                    </li>
-
-                    <li class="card-action-item">
-                      <button class="card-action-btn" aria-labelledby="card-label-2">
-                        <ion-icon name="heart-outline"></ion-icon>
-                      </button>
-
-                      <div class="card-action-tooltip" id="card-label-2">Add to Whishlist</div>
-                    </li>
-
-                    <li class="card-action-item">
-                      <button class="card-action-btn" aria-labelledby="card-label-3">
-                        <ion-icon name="eye-outline"></ion-icon>
-                      </button>
-
-                      <div class="card-action-tooltip" id="card-label-3">Quick View</div>
-                    </li>
-
-                    <li class="card-action-item">
-                      <button class="card-action-btn" aria-labelledby="card-label-4">
-                        <ion-icon name="repeat-outline"></ion-icon>
-                      </button>
-
-                      <div class="card-action-tooltip" id="card-label-4">Compare</div>
-                    </li>
-
-                  </ul>
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3 card-title">
-                    <a href="#">Web Pendidikan</a>
-                  </h3>
-
-                  <data class="card-price" value="180.85">$2000.000</data>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li class="product-item">
-              <div class="product-card" tabindex="0">
-
-                <figure class="card-banner">
-                  <img src="./assets/images/ecom.jpg" width="312" height="350" loading="lazy"
-                    alt="Leather Mens Slipper" class="image-contain">
-
-                  <ul class="card-action-list">
-
-                    <li class="card-action-item">
-                      <button class="card-action-btn" aria-labelledby="card-label-1">
-                        <ion-icon name="cart-outline"></ion-icon>
-                      </button>
-
-                      <div class="card-action-tooltip" id="card-label-1">Add to Cart</div>
-                    </li>
-
-                    <li class="card-action-item">
-                      <button class="card-action-btn" aria-labelledby="card-label-2">
-                        <ion-icon name="heart-outline"></ion-icon>
-                      </button>
-
-                      <div class="card-action-tooltip" id="card-label-2">Add to Whishlist</div>
-                    </li>
-
-                    <li class="card-action-item">
-                      <button class="card-action-btn" aria-labelledby="card-label-3">
-                        <ion-icon name="eye-outline"></ion-icon>
-                      </button>
-
-                      <div class="card-action-tooltip" id="card-label-3">Quick View</div>
-                    </li>
-
-                    <li class="card-action-item">
-                      <button class="card-action-btn" aria-labelledby="card-label-4">
-                        <ion-icon name="repeat-outline"></ion-icon>
-                      </button>
-
-                      <div class="card-action-tooltip" id="card-label-4">Compare</div>
-                    </li>
-
-                  </ul>
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3 card-title">
-                    <a href="#">Website Bisnis</a>
-                  </h3>
-
-                  <data class="card-price" value="190.85">$2000.000</data>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li class="product-item">
-              <div class="product-card" tabindex="0">
-
-                <figure class="card-banner">
-                  <img src="./assets/images/portal.jpg" width="312" height="350" loading="lazy"
-                    alt="Simple Fabric Shoe" class="image-contain">
-
-                  <div class="card-badge">New</div>
-
-                  <ul class="card-action-list">
-
-                    <li class="card-action-item">
-                      <button class="card-action-btn" aria-labelledby="card-label-1">
-                        <ion-icon name="cart-outline"></ion-icon>
-                      </button>
-
-                      <div class="card-action-tooltip" id="card-label-1">Add to Cart</div>
-                    </li>
-
-                    <li class="card-action-item">
-                      <button class="card-action-btn" aria-labelledby="card-label-2">
-                        <ion-icon name="heart-outline"></ion-icon>
-                      </button>
-
-                      <div class="card-action-tooltip" id="card-label-2">Add to Whishlist</div>
-                    </li>
-
-                    <li class="card-action-item">
-                      <button class="card-action-btn" aria-labelledby="card-label-3">
-                        <ion-icon name="eye-outline"></ion-icon>
-                      </button>
-
-                      <div class="card-action-tooltip" id="card-label-3">Quick View</div>
-                    </li>
-
-                    <li class="card-action-item">
-                      <button class="card-action-btn" aria-labelledby="card-label-4">
-                        <ion-icon name="repeat-outline"></ion-icon>
-                      </button>
-
-                      <div class="card-action-tooltip" id="card-label-4">Compare</div>
-                    </li>
-
-                  </ul>
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3 card-title">
-                    <a href="#">Blog</a>
-                  </h3>
-
-                  <data class="card-price" value="160.85">$2000.000</data>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li class="product-item">
-              <div class="product-card" tabindex="0">
-
-                <figure class="card-banner">
-                  <img src="./assets/images/bussi.jpg" width="312" height="350" loading="lazy"
-                    alt="Air Jordan 7 Retro " class="image-contain">
-
-                  <div class="card-badge"> -25%</div>
-
-                  <ul class="card-action-list">
-
-                    <li class="card-action-item">
-                      <button class="card-action-btn" aria-labelledby="card-label-1">
-                        <ion-icon name="cart-outline"></ion-icon>
-                      </button>
-
-                      <div class="card-action-tooltip" id="card-label-1">Add to Cart</div>
-                    </li>
-
-                    <li class="card-action-item">
-                      <button class="card-action-btn" aria-labelledby="card-label-2">
-                        <ion-icon name="heart-outline"></ion-icon>
-                      </button>
-
-                      <div class="card-action-tooltip" id="card-label-2">Add to Whishlist</div>
-                    </li>
-
-                    <li class="card-action-item">
-                      <button class="card-action-btn" aria-labelledby="card-label-3">
-                        <ion-icon name="eye-outline"></ion-icon>
-                      </button>
-
-                      <div class="card-action-tooltip" id="card-label-3">Quick View</div>
-                    </li>
-
-                    <li class="card-action-item">
-                      <button class="card-action-btn" aria-labelledby="card-label-4">
-                        <ion-icon name="repeat-outline"></ion-icon>
-                      </button>
-
-                      <div class="card-action-tooltip" id="card-label-4">Compare</div>
-                    </li>
-
-                  </ul>
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3 card-title">
-                    <a href="#">Website Bisnis</a>
-                  </h3>
-
-                  <data class="card-price" value="170.85">$170.85 <del>$200.21</del></data>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li class="product-item">
-              <div class="product-card" tabindex="0">
-
-                
-            </li>
-
-            <li class="product-item">
-              <div class="product-card" tabindex="0">
-
-               
-
-              </div>
-            </li>
-
-            </li>
-
-            <li class="product-item">
-              <div class="product-card" tabindex="0">
-
-
-              </div>
-            </li>
-
-          </ul>
-
-        </div>
-      </section>
+  <title>Isi Data Diri</title>
+</head>
+<style>body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+.container {
+  width: 400px;
+  margin: 5px auto;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+</style>
+<!-- Welcome Section -->
+<h1>SELAMAT DATANG</h1>
+  <h2>Selamat telah menjadi penulis di Martcode</h2> 
+  <p>Sekarang Anda dapat menjual barang digital Anda ke jutaan pengguna dan menghasilkan uang darinya.</p>
+
+
+  <!-- Icon Section -->
+  <div class="icon-wrapper">
+    <div class="icon-container">
+      <p>Pendapatan</p>
+      <i class="bi bi-bar-chart-line"></i>
+    </div>
+    <div class="icon-container">
+      <p>Laporan Bulanan</p>
+      <i class="bi bi-file-earmark-text-fill"></i>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+    <!-- favicon -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+<!-- custom css link -->
+<link rel="stylesheet" href="assets/css/style_home.css">
+
+<!-- google font link -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- preload banner -->
+<link rel="preload" href="./assets/images/hero-banner.png" as="image">
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+</body>
+
+</html>

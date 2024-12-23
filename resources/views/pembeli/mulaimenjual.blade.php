@@ -77,6 +77,11 @@
               <a href="/isidata" class="btn success">Menjadi Penulis Martcode</a>
          <!-- Tombol Tambah menjadi sign-->
               <a href="#" class="btn success">Masuk</a>
+              <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                @method('POST')
+                <button type="submit" class="btn success">Logout</button>
+              </form>
         </ul>
       </nav>
     </div>

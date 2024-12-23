@@ -38,6 +38,10 @@ class LoginController extends Controller
         if ($request->user()->role === 'pembeli') {
             return redirect('/'); // Arahkan ke halaman utama (home) untuk pembeli
         }
+
+        if ($request->user()->role === 'penjual') {
+            return redirect('/mulaimenjual');
+        }
     
         // Default redirect jika role tidak dikenali, arahkan ke dashboard pengguna biasa
         return redirect()->intended(route('dashboard'));

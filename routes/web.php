@@ -1,150 +1,87 @@
 <?php
-
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\HomeController;
-<<<<<<< HEAD
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\PenjualController;
 use App\Http\Controllers\PembeliController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\AuthController;
-
-
-
-route::get('/',[HomeController::class,'home']);
-route::get('/about',[HomeController::class,'about']);
-route::get('/product',[HomeController::class,'product']);
-route::get('/contact',[HomeController::class,'contact']);
-route::get('/login',[HomeController::class,'login']);
-
-route::get('/penjual',[PenjualController::class,'index']);
-route::get('/menjual',[PenjualController::class,'menjual']);
-route::get('/datadiri',[PenjualController::class,'datadiri']);
-route::get('/isidata',[PenjualController::class,'isidata'])->name('isidata.form');
-route::post('/isidata',[PenjualController::class,'store'])->name('isidata.post');
-route::get('/ulasan',[PenjualController::class,'ulasan']);
-route::get('/unggah',[PenjualController::class,'unggah']);
-Route::post('/admin/penjual', [PenjualController::class, 'store'])->name('isidata.post');
-
-// route::get('/pembeli',[PembeliController::class,'index']);
-
-Route::get('/pembeli', [PembeliController::class, 'index'])->name('pembeli.index');
-route::get('/kategori',[PembeliController::class,'kategori']);
-route::get('/profile-index',[PembeliController::class,'profile']);
-route::get('/jadipenjual',[PembeliController::class,'jadipenjual']);
-route::get('/mulaimenjual',[PembeliController::class,'mulaimenjual']);
-
-
-// Route::prefix('pembeli')->middleware('auth:pembeli')->group(function () {
-//     route::get('/penjual',[PenjualController::class,'index']);
-//     route::get('/menjual',[PenjualController::class,'menjual']);
-//     route::get('/datadiri',[PenjualController::class,'datadiri']);
-//     route::get('/isidata',[PenjualController::class,'isidata'])->name('isidata.form');
-//     route::post('/isidata',[PenjualController::class,'store'])->name('isidata.post');
-//     route::get('/ulasan',[PenjualController::class,'ulasan']);
-//     route::get('/unggah',[PenjualController::class,'unggah']);
-    
-//     Route::get('/pembeli', [PembeliController::class, 'index'])->name('pembeli.index');
-//     route::get('/kategori',[PembeliController::class,'kategori']);
-//     route::get('/profile-index',[PembeliController::class,'profile']);
-//     route::get('/jadipenjual',[PembeliController::class,'jadipenjual']);
-//     route::get('/mulaimenjual',[PembeliController::class,'mulaimenjual']);
-// });
-=======
 use App\Http\Controllers\MenjualController;
-use App\Http\Controllers\PembeliController;
-use App\Http\Controllers\PenjualController;
 use App\Http\Controllers\ProdukController;
 
-route::get('/',[HomeController::class,'home']);
-route::get('about',[HomeController::class,'about']);
-route::get('produk',[HomeController::class,'produk']);
 
-route::get('pembeli',[PembeliController::class,'index']);
+//Perintah untuk landingpage
 
-route::get('/penjual',[MenjualController::class,'index']);
-route::get('/menjual',[MenjualController::class,'menjual']);
-route::get('/datadiri',[MenjualController::class,'datadiri']);
-route::get('/isidata',[MenjualController::class,'isidata'])->name('isidata.form');
-route::post('/isidata',[MenjualController::class,'store'])->name('isidata.post');
-route::get('/ulasan',[MenjualController::class,'ulasan']);
+Route::get('/',[HomeController::class,'home']);
+Route::get('/about',[HomeController::class,'about']);
+Route::get('/product',[HomeController::class,'product']);
+Route::get('/contact',[HomeController::class,'contact']);
+Route::get('/login',[HomeController::class,'login']);
+
+
+//perintah untuk pembeli
+
+Route::get('/pembeli', [PembeliController::class, 'index'])->name('pembeli.index');
+Route::get('/kategori',[PembeliController::class,'kategori']);
+Route::get('/profile-index',[PembeliController::class,'profile']);
+Route::get('/jadipenjual',[PembeliController::class,'jadipenjual']);
+Route::get('/mulaimenjual',[PembeliController::class,'mulaimenjual']);
+
+//perintah untuk penjual
+
+Route::get('/penjual',[MenjualController::class,'index']);
+Route::get('/menjual',[MenjualController::class,'menjual']);
+Route::get('/datadiri',[MenjualController::class,'datadiri']);
+Route::get('/isidata',[MenjualController::class,'isidata'])->name('isidata.form');
+Route::post('/isidata',[MenjualController::class,'store'])->name('isidata.post');
+Route::get('/ulasan',[MenjualController::class,'ulasan']);
+
+//perintah untuk produk 
 route::get('/unggah',[ProdukController::class,'index']);
 
->>>>>>> a550c6faa6725be05dc0db278ece1e4eeb810fbf
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-    
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
+//Perintah untuk admin
 require __DIR__.'/auth.php';
 
 require __DIR__.'/admin-auth.php';
 
-// Route::middleware(['auth', 'Admin'])->group(function () {
-//     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-//     Route::get('/mulaimenjual', [PembeliController::class, 'index'])->name('pembeli.dashboard');
-//     Route::get('/penjual-dashboard', [PenjualController::class, 'index'])->name('penjual.dashboard');
-// });
+Route::middleware(['auth', 'Admin'])->group(function () {
+Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::get('/mulaimenjual', [PembeliController::class, 'index'])->name('pembeli.dashboard');
+Route::get('/penjual-dashboard', [MenjualController::class, 'index'])->name('penjual.dashboard');
+ });
 
-route::get('/admin/dashboard',[AdminController::class,'index']);
-route::get('/admin/dashboard/barang',function(){
+Route::get('/admin/dashboard',[AdminController::class,'index']);
+Route::get('/admin/dashboard/barang',function(){
     return view('adminViews.components.barang');
 });
-route::get('/admin/dashboard/users',[AdminController::class,'users']);
-route::get('/admin/dashboard/total',[AdminController::class,'total']);
-route::get('/admin/dashboard/kategoriproduk',[AdminController::class,'kategoriproduk']);
-route::put('/users/{id}/update',[AdminController::class,'update'])->name('users-update');
-route::get('/admin/dashboard/produk',function(){
+
+Route::get('/admin/dashboard/users',[AdminController::class,'users']);
+Route::get('/admin/dashboard/total',[AdminController::class,'total']);
+Route::get('/admin/dashboard/kategoriproduk',[AdminController::class,'kategoriproduk']);
+Route::put('/users/{id}/update',[AdminController::class,'update'])->name('users-update');
+Route::get('/admin/dashboard/produk',function(){
     return view('adminViews.components.produk');
 });
-route::get('/admin/dashboard/penjual',function(){
+Route::get('/admin/dashboard/penjual',function(){
     return view('adminViews.penjual');
 });
-route::get('/admin/dashboard/pemesanan',function(){
+Route::get('/admin/dashboard/pemesanan',function(){
     return view('adminViews.pemesanan');
 });
 
-Route::post('/accept-user/{id}', [UserController::class, 'acceptUser']);
+Route::post('/accept-user/{id}', [UserController::class, 'accept'])->name('user.accept');
 Route::post('/reject-user/{id}', [UserController::class, 'rejectUser']);
 Route::post('/block-user/{id}', [UserController::class, 'blockUser']);
 Route::post('/accept-user/{id}', [UserController::class, 'acceptUser'])->name('accept.user');
 
-route::get('/admin/dashboard/produk',[AdminController::class,'produk']);
-
-Route::get('/index', function () {
-    return view('livewire/admin.index');
-});
-
-// x
-
-Route::get('/auth/register', function () {
-    return view('auth.register');
-})->name('auth.register');
+Route::get('/admin/dashboard/produk',[AdminController::class,'produk']);
 
 Route::get('/pembeli/dashboard', [PembeliController::class, 'index'])->name('pembeli.index');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-
-
-
-
-// Rute untuk menerima pengguna
-Route::post('/accept-user/{id}', [UserController::class, 'accept'])->name('user.accept');
-
 // Rute untuk menolak pengguna
 Route::post('/reject-user/{id}', [UserController::class, 'reject'])->name('user.reject');
-
-
 
 // Rute untuk menampilkan cart
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
@@ -155,11 +92,15 @@ Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.
 // Rute untuk menghapus item dari cart
 Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 
-
 // routes/web.php
-
-
-
 Route::resource('kategori', KategoriController::class);
 Route::delete('admin/dashboard/kategoriproduk/{id}', [KategoriController::class, 'destroy']);
 
+//route auth
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/auth/register', function () {
+    return view('auth.register');
+})->name('auth.register');

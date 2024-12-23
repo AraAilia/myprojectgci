@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class PembeliController extends Controller
 {
-   
+    public function index()
+    {
+        return view('pembeli.index');
+    }
     public function mulaimenjual()
     {
         return view('pembeli.mulaimenjual');
@@ -19,9 +22,5 @@ class PembeliController extends Controller
     {
         return view('pembeli.unduh');
     }
-    public function index()
-    {
-        // Menampilkan dashboard pembeli
-        return view('pembeli.index'); // Pastikan view ini ada di resources/views/pembeli/index.blade.php
-    }
+   
 }

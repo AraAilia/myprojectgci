@@ -72,16 +72,9 @@
           </li>
 
           <li class="navbar-item">
-            <a href="#" class="navbar-link">Products</a>
+            <a href="product" class="navbar-link">Products</a>
           </li>
 
-          <li class="navbar-item">
-            <a href="#" class="navbar-link">Shop</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#" class="navbar-link">Contact</a>
-          </li>
 
         </ul>
       

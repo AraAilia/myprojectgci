@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Penjual;
+use App\Models\User;
 
 class MenjualController extends Controller
 {
@@ -46,7 +49,7 @@ class MenjualController extends Controller
         // Simpan data ke database
         $userDetail = new Penjual();
         $userDetail->user_id = Auth::id(); // Ambil user_id dari user yang sedang login
-        $userDetai ->nama = $request->input('nama');
+        $userDetail ->nama = $request->input('nama');
         $userDetail->toko = $request->input('toko');
         $userDetail->nomor_hp = $request->input('nomor_hp');
         $userDetail->bank = $request->input('bank');

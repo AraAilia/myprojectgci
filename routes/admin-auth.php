@@ -10,12 +10,12 @@ Route::prefix('admin')->middleware('guest:admin')->group(function () {
     Route::post('register', [RegisteredUserController::class, 'store']);
 
     Route::get('login', [LoginController::class, 'create'])->name('login');
-    Route::post('login', [LoginController::class, 'store']);
+    Route::post('login', [LoginController::class, 'store'])->name('login-proses');
 
 });
 
 Route::prefix('admin')->middleware('auth:admin')->group(function () {
-    Route::get('/dashboard',function(){
+    Route::get('/admin/dashboard',function(){
         return '';//view('admin.dashboard');
     })->name('admin.dashboard');
 

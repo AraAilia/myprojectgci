@@ -1,17 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<<<<<<< HEAD
-=======
-
->>>>>>> a550c6faa6725be05dc0db278ece1e4eeb810fbf
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MARTCODE</title>
 
-<<<<<<< HEAD
-=======
+
   <!-- 
     - favicon
   -->
@@ -22,9 +16,6 @@
   -->
   <link rel="stylesheet" href="assets/css/style_home.css">
   
-
-
-
   <!-- 
     - google font link
   -->
@@ -39,7 +30,6 @@
   -->
   <link rel="preload" href="./assets/images/hero-banner.png" as="image">
   
->>>>>>> a550c6faa6725be05dc0db278ece1e4eeb810fbf
   <style>
  /* Kontainer untuk posisi tengah */
 .centered-container {
@@ -91,7 +81,7 @@
 
 <body id="top">
 
-  <!-- 
+<!-- 
 @include('home.header')
     - #HEADER
   -->
@@ -137,10 +127,6 @@
         <ul class="nav-action-list">
 
           <!-- Button -->
-
-
-
-
 <!-- JavaScript to perform search -->
 <script>
   function performSearch() {
@@ -178,8 +164,6 @@
   }
 </script>
 
-
-
           <li>
             <a href="/login" class="nav-action-btn">
               <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
@@ -205,8 +189,6 @@
             </a>
         </li>
         
-          
-
         </ul>
 
       </nav>
@@ -221,18 +203,6 @@
     </form>
   </div>
   
-
- 
-      <!-- 
-<<<<<<< HEAD
-        COMPONENT INI BERMASALAH COBA DI CEK KEMBALI HEHEHEHEHEH
-      {{-- @include('home.product') --}}
-=======
-      @include('home.product')
->>>>>>> a550c6faa6725be05dc0db278ece1e4eeb810fbf
-        - #PRODUCT
-      -->
-
       <section class="section product">
         <div class="container">
 
@@ -312,16 +282,11 @@
 
                 <div class="card-content">
 
-                  
-
                   <h3 class="h3 card-title">
                     <a href="#">Website Pendidikan</a>
                   </h3>
-
                   <data class="card-price" value="180.85">$180.85</data>
-
                 </div>
-
               </div>
             </li>
 
@@ -357,15 +322,9 @@
 
                       <div class="card-action-tooltip" id="card-label-3">Quick View</div>
                     </li>
-
-<<<<<<< HEAD
                     <li class="card-action-ite">
-=======
                     <li class="card-action-item">
->>>>>>> a550c6faa6725be05dc0db278ece1e4eeb810fbf
-
                     </li>
-
                   </ul>
                 </figure>
 
@@ -623,9 +582,7 @@
 
         </div>
       </section>
-<<<<<<< HEAD
       
-  <!-- 
     - favicon
   -->
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
@@ -649,10 +606,7 @@
   <!-- 
     - preload banner
   -->
-  <link rel="preload" href="./assets/images/hero-banner.png" as="image">
-  
-=======
->>>>>>> a550c6faa6725be05dc0db278ece1e4eeb810fbf
+  <link rel="preload" href="./assets/images/hero-banner.png" as="image">  
        <!-- 
     - custom js link
   -->
