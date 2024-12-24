@@ -32,12 +32,10 @@ class KategoriController extends Controller
 
         return redirect()->route('kategori.index')->with('success', 'Kategori berhasil ditambahkan!');
     }
-
-    // Menampilkan form untuk mengedit kategori
-    public function edit($id)
+    public function kategori()
     {
-        $kategori = Kategori::findOrFail($id);
-        return view('kategori.edit', compact('kategori'));
+        $kategoris = Kategori::all(); // Mengambil semua data kategori
+        return view('kategori', compact('kategori'));
     }
 
     // Memperbarui kategori yang ada di database
@@ -63,5 +61,6 @@ class KategoriController extends Controller
 
         return redirect()->route('kategori.index')->with('success', 'Kategori berhasil dihapus!');
     }
-    
+   
+
 }

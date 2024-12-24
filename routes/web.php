@@ -95,6 +95,8 @@ Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name
 // routes/web.php
 Route::resource('kategori', KategoriController::class);
 Route::delete('admin/dashboard/kategoriproduk/{id}', [KategoriController::class, 'destroy']);
+Route::post('/kategori', [KategoriController::class, 'store'])->name('kategori.store');
+
 
 //route auth
 Route::get('/dashboard', function () {
