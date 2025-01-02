@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Penjual;
 
 class ProfileController extends Controller
 {
@@ -48,7 +49,7 @@ class ProfileController extends Controller
 
         $user = $request->user();
 
-        Auth::logout();
+        //Auth::logout();
 
         $user->delete();
 
@@ -57,4 +58,34 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+    
+    //untuk menambahkan data profil penjual
+    public function store(Request $request)
+    {
+        // Validasi data
+        $validatedData = $request->validate([
+            'nama' => 'required|string|max:255',
+            'toko' => 'required|string|max:255|unique:penjuals,toko',
+            'nomor_hp' => 'required|string|max:15',
+            'bank' => 'required|string|max:30',
+            'no_rekening' => 'required|string|max:30',
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+    
+        // Simpan data ke database
+        $penjual = new Penjual();
+        $penjual->fill($validatedData);
+        $penjual->save();
+    
+        // Redirect ke halaman My Profil
+
+        return response()->json([
+            'data' => $penjual
+       ]);
+        
+        // return redirect()->route('profil.my')->with('success', 'Profil berhasil diperbarui!');
+    }
+    
 }
+

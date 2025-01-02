@@ -36,5 +36,8 @@ class UserController extends Controller
 
         return redirect()->back()->with('success', 'Pengguna berhasil diblokir.');
     }
-    
+    public function reject()
+{
+    // Your code for rejection logic here
+}
 }

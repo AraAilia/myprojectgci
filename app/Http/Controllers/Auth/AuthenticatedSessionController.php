@@ -34,7 +34,7 @@ class AuthenticatedSessionController extends Controller
         if ($request->user()->role === 'admin') {
             return redirect("/admin/dashboard"); // Arahkan ke admin dashboard
         }else if($request->user()->role === 'pembeli.') {
-            return redirect('/mulaimenjual');
+            return redirect('/pembeli/index');
         }else {
             return redirect("/login");
         }

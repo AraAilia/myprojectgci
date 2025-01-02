@@ -357,6 +357,40 @@ body {
 
 .btn-link:is(:hover, :focus) { border-color: transparent; }
 
+/* Membuat dropdown tersembunyi secara default */
+.profile-item {
+  position: relative; /* Untuk mengatur posisi dropdown di dalam profil */
+}
+
+.profile-dropdown {
+  display: none; /* Menyembunyikan dropdown saat tidak di-hover */
+  position: absolute;
+  top: 100%; /* Tempatkan dropdown di bawah Profil */
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 10px;
+  z-index: 10; /* Agar dropdown muncul di atas konten lain */
+}
+
+.profile-item:hover .profile-dropdown {
+  display: block; /* Menampilkan dropdown saat Profil di-hover */
+}
+
+.nav-action-btn {
+  display: block; /* Agar setiap tombol menjadi baris terpisah */
+  padding: 10px;
+  text-align: left; /* Teks rata kiri */
+  color: #333;
+  text-decoration: none;
+}
+
+.nav-action-btn:hover {
+  background-color: #f0f0f0; /* Menambahkan efek hover untuk tombol */
+}
+
+
 
 
 
@@ -519,6 +553,7 @@ body {
 .hero {
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: rgb(255, 255, 255);
   background-position: left;
   min-height: 400px;
   display: flex;

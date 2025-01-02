@@ -17,7 +17,7 @@
       <div class="overlay" data-overlay></div>
 
       <a href="#" class="logo">
-        <img src="./assets/images/logo.svg" width="160" height="50" alt="Footcap logo">
+        <img src="./assets/images/logomm.jpg" width="160" height="50" alt="Footcap logo">
       </a>
 
       <button class="nav-open-btn" data-nav-open-btn aria-label="Open Menu">
@@ -37,7 +37,7 @@
         <ul class="navbar-list">
 
           <li class="navbar-item">
-            <a href="#" class="navbar-link">Home</a>
+            <a href="index" class="navbar-link">Home</a>
           </li>
 
           <li class="navbar-item">

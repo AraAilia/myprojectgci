@@ -36,15 +36,15 @@ class LoginController extends Controller
         }
     
         if ($request->user()->role === 'pembeli') {
-            return redirect('/'); // Arahkan ke halaman utama (home) untuk pembeli
+            return redirect('/pembeli/index'); // Arahkan ke halaman utama (home) untuk pembeli
         }
 
-        if ($request->user()->role === 'penjual') {
-            return redirect('/mulaimenjual');
-        }
+        //if ($request->user()->role === 'penjual') {
+           // return redirect('/mulaimenjual');
+       // }
     
         // Default redirect jika role tidak dikenali, arahkan ke dashboard pengguna biasa
-        return redirect()->intended(route('dashboard'));
+       // return redirect()->intended(route('dashboard'));
     }
     
 
@@ -58,7 +58,7 @@ class LoginController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
-
-        return redirect('/');
+        
+        return redirect('/pembeli');
     }
 }

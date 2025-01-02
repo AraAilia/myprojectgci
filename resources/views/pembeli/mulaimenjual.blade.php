@@ -37,6 +37,7 @@
 }
 
 </style>
+
 </head>
 
 <body id="top">
@@ -70,17 +71,45 @@
         </a>
 
         <ul class="navbar-list">
-        <li>
-          <!-- Tombol Tambah menjadi penulis-->
-              <button class="nav-action-btn">
-              <a href="/isidata" class="btn success">Menjadi Penulis Martcode</a>
-         <!-- Tombol Tambah menjadi sign-->
-              <a href="#" class="btn success">Masuk</a>
-              <form action="{{ route('logout') }}" method="POST">
-                @csrf
-                @method('POST')
-                <button type="submit" class="btn success">Logout</button>
-              </form>
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <a href="pembeli" class="navbar-link">Home</a>
+            </li>
+            <li class="navbar-item">
+              <a href="pembeli/kategori" class="navbar-link">Kategori</a>
+            </li>
+            <li class="navbar-item">
+              <a href="unduh" class="navbar-link">Download</a>
+            </li>
+            <li class="navbar-item">
+              <a href="mulaimenjual" class="navbar-link">Mulai Menjual</a>
+            </li>
+          </ul>
+          <ul class="nav-action-list">
+            <li>
+              <li class="profile-item">
+                @if (auth()->check())
+                <div style="text-align: center; width: 100%; margin-top: 20px;">
+                  <b style="font-weight: bold;">Profil</b>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                  </form>
+              </div>
+                    </form>
+                    <div class="profile-dropdown">
+                        <a href="{{ route('dashboard') }}" class="nav-action-btn">
+                            <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+                            <span>Akun Saya</span> <!-- Teks tetap 'Akun Saya' -->
+                        </a>
+                        <a href="pembeli.index" class="nav-action-btn" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <ion-icon name="exit-outline" aria-hidden="true"></ion-icon>
+                            <span>Logout</span>
+                        </a>
+                    
+                @else
+                <span>Login / Register</span>
+                    
+                @endif
         </ul>
       </nav>
     </div>
@@ -99,7 +128,9 @@
 <p class="hero-text" style="font-size: 20px;">
   "ingin Menjadi penjual dan menjual karya anda di Martcode?"
 </p>  
-<a href="#" class="btn-primary">Masuk</a>
+<!-- Tombol Tambah menjadi penulis-->
+<button class="nav-action-btn">
+  <a href="/isidata" class="btn success">Menjadi Penulis Martcode</a>
 
         </div>
       </section>

@@ -21,23 +21,31 @@
 
 <h2>Daftar Proyek Source Code</h2>
 
-<table>
-    <thead>
-        <tr>
-            <th>No</th>
-            <th>Nama</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Aksi</th>
-        </tr>
-    </thead>
+<div class="">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead class="table-primary">
+    <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>Toko</th>
+        <th>Nomor Telepon</th>
+        <th>Bank</th>
+        <th>No_Rekening</th>
+        
+
+    </tr>
+</thead>
     <tbody>
-        @foreach ($penjual as $penjual)
+        @if(!empty($penjual))
+        @foreach ($penjual as $item)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $penjual->name }}</td>
-                <td>{{ $penjual->email }}</td>
-                <td>{{ $penjual->role }}</td>
+                <td>{{ $penjual->nama }}</td>
+                <td>{{ $penjual->toko }}</td>
+                <td>{{ $penjual->nomor_hp }}</td>
+                <td>{{ $penjual->bank }}</td>
+                <td>{{ $penjual->no_rekening}}</td>
                 <td>
                     <button class="btn btn-edit" data-bs-toggle="modal" data-bs-target="#editPenjualModal{{ $penjual->id }}">
                         <i class="bi bi-pencil-square"></i> 
@@ -86,9 +94,8 @@
                 </div>
             </div>
         @endforeach
+        @endif
+        
     </tbody>
 </table>
-
-
-    
 @endsection

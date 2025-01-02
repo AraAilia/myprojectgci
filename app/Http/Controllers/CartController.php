@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produk;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -25,7 +26,7 @@ class CartController extends Controller
     // Menambahkan item ke cart
     public function addToCart(Request $request, $id)
     {
-        $product = Product::find($id); // Mengambil produk berdasarkan ID
+        $product = Produk::find($id); // Mengambil produk berdasarkan ID
 
         // Ambil cart yang ada di session, atau buat array kosong jika belum ada
         $cart = session()->get('cart', []);

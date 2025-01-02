@@ -100,21 +100,23 @@
   <div class="container">
     <h2>Isi Data Diri</h2>
     <form>
+      <form id="isidata" action="{{ route('penjual.store') }}" method="POST">
+      @csrf
       <div class="form-group">
         <label for="nama">Nama Lengkap:</label>
-        <input type="text" id="nama" name="nama" required>
+        <input type="text" id="nama" name="nama" placeholder="Masukkan Nama Anda" required>
       </div>
       <div class="form-group">
         <label for="toko">Nama Toko:</label>
-        <textarea id="toko" name="toko" required></textarea>
+        <input id="toko" name="toko" placeholder="Masukkan Nama Toko Anda" required>
       </div>
       <div class="form-group">
-        <label for="no_hp">No. HP:</label>
-        <input type="text" id="no_hp" name="no_hp" required>
+        <label for="nomor_hp">No. HP:</label>
+        <input type="text" id="nomor_hp" name="nomor_hp" placeholder="Masukkan No HP Anda" required>
       </div>
       <div class="form-group">
-        <label for="jenis_bank">Jenis Bank:</label>
-        <select id="jenis_bank" name="jenis_bank" required>
+        <label for="bank">Jenis Bank:</label>
+        <select id="bank" name="bank" required>
           <option value="">Pilih Jenis Bank</option>
           <option value="bri">Bank BRI</option>
           <option value="mandiri">Bank Mandiri</option>
@@ -123,8 +125,8 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="no_rek">No. Rekening:</label>
-        <input type="text" id="no_rek" name="no_rek" required>
+        <label for="no_rekening">No. Rekening:</label>
+        <input type="text" id="no_rekening" name="no_rekening" placeholder="Masukkan No Rekening Anda" required>
       </div>
       <button type="submit">Simpan</button>
     </form>

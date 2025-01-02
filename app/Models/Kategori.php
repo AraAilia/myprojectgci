@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Kategori extends Model
 {
-    protected $table='kategori';
-    protected $fillable=['kategori'];
+    use HasFactory;
 
-    public function produk(){
-        return $this->hasMany(Produk::class, 'kategori_id');
-    }
+    // Tentukan nama tabel jika tidak sesuai dengan plural dari nama model
+    protected $table = 'kategori';
+
+    // Tentukan kolom yang bisa diisi secara massal
+    protected $fillable = ['kategori'];
 }

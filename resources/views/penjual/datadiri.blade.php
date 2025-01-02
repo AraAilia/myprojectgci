@@ -68,103 +68,20 @@
 
     </div>
   </header>
+
+
   <div class="container">
-    <h2>Isi Data Diri</h2>
-    <form>
-      <div class="form-group">
-        <label for="nama">Nama Lengkap:</label>
-        <input type="text" id="nama" name="nama" required>
-      </div>
-      <div class="form-group">
-        <label for="toko">Nama Toko:</label>
-        <textarea id="toko" name="toko" required></textarea>
-      </div>
-      <div class="form-group">
-        <label for="no_hp">No. HP:</label>
-        <input type="text" id="no_hp" name="no_hp" required>
-      </div>
-      <div class="form-group">
-        <label for="jenis_bank">Jenis Bank:</label>
-        <select id="jenis_bank" name="jenis_bank" required>
-          <option value="">Pilih Jenis Bank</option>
-          <option value="bri">Bank BRI</option>
-          <option value="mandiri">Bank Mandiri</option>
-          <option value="bca">Bank BCA</option>
-          <option value="lainnya">Lainnya</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="no_rek">No. Rekening:</label>
-        <input type="text" id="no_rek" name="no_rek" required>
-      </div>
-      <button type="submit">Simpan</button>
-    </form>
+      <h1>Profil Penjual</h1>
+      <p><strong>Nama:</strong> {{ $penjual->nama }}</p>
+      <p><strong>Toko:</strong> {{ $penjual->toko }}</p>
+      <p><strong>Nomor HP:</strong> {{ $penjual->nomor_hp }}</p>
+      <p><strong>Bank:</strong> {{ $penjual->bank }}</p>
+      <p><strong>No Rekening:</strong> {{ $penjual->no_rekening }}</p>
+      <a href="/edit-profil">Edit Profil</a>
   </div>
-  <style>
-  .container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
 
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .form-group {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-  }
-
-  .form-group label {
-    flex: 1;
-    text-align: right;
-    font-weight: bold;
-    color: #555;
-  }
-
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
-    flex: 2;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-
-  .form-group textarea {
-    resize: vertical;
-  }
-
-  button {
-    align-self: center;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  button:hover {
-    background-color: #0056b3;
-  }
-</style>
+  
+  
 
   
 <!-- custom css link -->

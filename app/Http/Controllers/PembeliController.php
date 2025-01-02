@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Pembeli;
 use Illuminate\Http\Request;
 
 class PembeliController extends Controller
@@ -10,6 +10,7 @@ class PembeliController extends Controller
     {
         return view('pembeli.index');
     }
+    
     public function mulaimenjual()
     {
         return view('pembeli.mulaimenjual');

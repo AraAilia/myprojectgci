@@ -7,11 +7,11 @@
             border-collapse: collapse;
         }
         table, th, td {
-            border: 1px solid #c93030;
+            border: 1px solid #111010;
             padding: 8px;
         }
         th {
-            background-color: #c93434;
+            background-color: #111010;
             text-align: left;
         }
         tr:hover {
@@ -49,10 +49,9 @@
                     <button class="btn btn-edit" data-bs-toggle="modal" data-bs-target="#editUserModal{{ $user->id }}">
                         <i class="bi bi-pencil-square"></i> 
                     </button>
-                    <button class="btn btn-success btn-square" data-bs-toggle="modal" data-bs-target="#acceptUserModal{{ $user->id }}">
-                        <i class="bi bi-check-circle"></i> Terima
+                    <button class="btn btn-danger btn-square" data-bs-toggle="modal" data-bs-target="#acceptUserModal{{ $user->id }}">
+                        <i class="bi bi-check-circle"></i> Aksi
                     </button>
-                    
                     <div class="modal fade" id="acceptUserModal{{ $user->id }}" tabindex="-1" aria-labelledby="acceptUserModalLabel{{ $user->id }}" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">

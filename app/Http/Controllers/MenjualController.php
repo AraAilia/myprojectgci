@@ -35,6 +35,7 @@ class MenjualController extends Controller
         return view('penjual.isidata');
     }
     
+    
     public function store(Request $request)
     {
         // Validasi input

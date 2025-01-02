@@ -34,7 +34,6 @@ class AdminController extends Controller
         return view('adminViews.penjual',compact('penjual'));  
         }
 
-
     public function update(Request $request, $id)
     {
         // Validasi hanya untuk kolom 'role'

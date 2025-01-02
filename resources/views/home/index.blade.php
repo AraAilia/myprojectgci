@@ -88,15 +88,9 @@
           </li>
 
           <li>
-            <a href="/login" class="nav-action-btn">
+            <a href="{{ route('login') }}" class="nav-action-btn">
               <ion-icon name="log-in-outline" aria-hidden="true" style="font-size: 24px;"></ion-icon>
-              @if (auth()->check())
-              <span>Logout</span>
-
-              @else
-              <span>Login</span>
-                  
-              @endif
+              <span>Login</span> <!-- Tampilkan hanya tombol Login -->
             </a>
           </li>
           <li>
@@ -127,8 +121,8 @@
         - #HERO
       -->
 
-      <section class="section hero" style="background-image: url('./assets/images/k.png')">
-        <div class="container">
+      <section class="section hero" style="background-image: url('./assets/images/k.png') ; background-color :white" >
+        <div class="container" >
 
           <h2 class="h1 hero-title">
             <strong>Source Code Berkualitas</strong>
@@ -147,7 +141,7 @@
         - #PRODUCT
       -->
 
-      <section class="section product">
+      <section class="section product" >
         <div class="container">
 
           <h2 class="h2 section-title">Bestsellers Products</h2>
@@ -185,9 +179,9 @@
             <li class="product-item">
               <div class="product-card" tabindex="0">
 
-                <figure class="card-banner">
+                <figure class="card-banner" style="background-color : white">
                   <img src="./assets/images/webschool.jpg" width="312" height="350" loading="lazy"
-                    alt="Running Sneaker Shoes" class="image-contain">
+                    alt="" class="image-contain">
 
                   <div class="card-badge">New</div>
 
@@ -241,7 +235,7 @@
                   </ul>
                 </figure>
 
-                <div class="card-content">
+                <div class="card-content" >
 
                   <h3 class="h3 card-title">
                     <a href="#">Web Pendidikan</a>
@@ -257,7 +251,7 @@
             <li class="product-item">
               <div class="product-card" tabindex="0">
 
-                <figure class="card-banner">
+                <figure class="card-banner" style="background-color : white">
                   <img src="./assets/images/ecom.jpg" width="312" height="350" loading="lazy"
                     alt="Leather Mens Slipper" class="image-contain">
 
@@ -314,7 +308,7 @@
             <li class="product-item">
               <div class="product-card" tabindex="0">
 
-                <figure class="card-banner">
+                <figure class="card-banner" style="background-color : white">
                   <img src="./assets/images/portal.jpg" width="312" height="350" loading="lazy"
                     alt="Simple Fabric Shoe" class="image-contain">
 
@@ -373,7 +367,7 @@
             <li class="product-item">
               <div class="product-card" tabindex="0">
 
-                <figure class="card-banner">
+                <figure class="card-banner" style="background-color : white">
                   <img src="./assets/images/bussi.jpg" width="312" height="350" loading="lazy"
                     alt="Air Jordan 7 Retro " class="image-contain">
 
@@ -472,33 +466,25 @@
                 <div class="card-icon">
                   <img src="./assets/images/service-1.png" width="53" height="28" loading="lazy" alt="Service icon">
                 </div>
-
                 <div>
                   <h3 class="h4 card-title">Free Shiping</h3>
-
                   <p class="card-text">
                     All orders over <span>$150</span>
                   </p>
                 </div>
-
               </div>
             </li>
-
             <li class="service-item">
               <div class="service-card">
-
                 <div class="card-icon">
                   <img src="./assets/images/service-2.png" width="43" height="35" loading="lazy" alt="Service icon">
                 </div>
-
                 <div>
                   <h3 class="h4 card-title">Quick Payment</h3>
-
                   <p class="card-text">
                     100% secure payment
                   </p>
                 </div>
-
               </div>
             </li>
 
@@ -516,31 +502,8 @@
                     Money back in 30 days
                   </p>
                 </div>
-
               </div>
             </li>
-
-            <li class="service-item">
-              <div class="service-card">
-
-                <div class="card-icon">
-                  <img src="./assets/images/service-4.png" width="40" height="40" loading="lazy" alt="Service icon">
-                </div>
-
-                <div>
-                  <h3 class="h4 card-title">24/7 Support</h3>
-
-                  <p class="card-text">
-                    Get Quick Support
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </div>
       </section>
 
 
@@ -650,7 +613,7 @@
         <div class="footer-brand">
 
           <a href="#" class="logo">
-            <img src="./assets/images/logo.svg" width="160" height="50" alt="Footcap logo">
+            <img src="./assets/images/logomm.jpg" width="160" height="50" alt="Footcap logo">
           </a>
 
           <ul class="social-list">
@@ -683,159 +646,110 @@
 
         </div>
 
-        <div class="footer-link-box">
-
-          <ul class="footer-list">
-
-            <li>
-              <p class="footer-list-title">Contact Us</p>
-            </li>
-
-            <li>
-              <address class="footer-link">
-                <ion-icon name="location"></ion-icon>
-
-                <span class="footer-link-text">
-                  2751 S Parker Rd, Aurora, CO 80014, United States
-                </span>
-              </address>
-            </li>
-
-            <li>
-              <a href="tel:+557343673257" class="footer-link">
-                <ion-icon name="call"></ion-icon>
-
-                <span class="footer-link-text">+557343673257</span>
-              </a>
-            </li>
-
-            <li>
-              <a href="mailto:footcap@help.com" class="footer-link">
-                <ion-icon name="mail"></ion-icon>
-
-                <span class="footer-link-text">footcap@help.com</span>
-              </a>
-            </li>
-
-          </ul>
-
-          <ul class="footer-list">
-
-            <li>
-              <p class="footer-list-title">My Account</p>
-            </li>
-
-            <li>
-              <a href="#" class="footer-link">
-                <ion-icon name="chevron-forward-outline"></ion-icon>
-
-                <span class="footer-link-text">My Account</span>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="footer-link">
-                <ion-icon name="chevron-forward-outline"></ion-icon>
-
-                <span class="footer-link-text">View Cart</span>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="footer-link">
-                <ion-icon name="chevron-forward-outline"></ion-icon>
-
-                <span class="footer-link-text">Wishlist</span>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="footer-link">
-                <ion-icon name="chevron-forward-outline"></ion-icon>
-
-                <span class="footer-link-text">Compare</span>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="footer-link">
-                <ion-icon name="chevron-forward-outline"></ion-icon>
-
-                <span class="footer-link-text">New Products</span>
-              </a>
-            </li>
-
-          </ul>
-
-          <div class="footer-list">
-
-            <p class="footer-list-title">Opening Time</p>
-
-            <table class="footer-table">
-              <tbody>
-
-                <tr class="table-row">
-                  <th class="table-head" scope="row">Mon - Tue:</th>
-
-                  <td class="table-data">8AM - 10PM</td>
-                </tr>
-
-                <tr class="table-row">
-                  <th class="table-head" scope="row">Wed:</th>
-
-                  <td class="table-data">8AM - 7PM</td>
-                </tr>
-
-                <tr class="table-row">
-                  <th class="table-head" scope="row">Fri:</th>
-
-                  <td class="table-data">7AM - 12PM</td>
-                </tr>
-
-                <tr class="table-row">
-                  <th class="table-head" scope="row">Sat:</th>
-
-                  <td class="table-data">9AM - 8PM</td>
-                </tr>
-
-                <tr class="table-row">
-                  <th class="table-head" scope="row">Sun:</th>
-
-                  <td class="table-data">Closed</td>
-                </tr>
-
-              </tbody>
-            </table>
-
-          </div>
-
-          <div class="footer-list">
-
-            <p class="footer-list-title">Newsletter</p>
-
-            <p class="newsletter-text">
-              Authoritatively morph 24/7 potentialities with error-free partnerships.
-            </p>
-
-            <form action="" class="newsletter-form">
-              <input type="email" name="email" required placeholder="Email Address" class="newsletter-input">
-
-              <button type="submit" class="btn btn-primary">Subscribe</button>
-            </form>
-
-          </div>
-
-        </div>
-
+  
       </div>
+
+      <div class="footer-link-box">
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Contact Us</p>
+          </li>
+
+          <li>
+            <address class="footer-link">
+              <ion-icon name="location"></ion-icon>
+
+              <span class="footer-link-text">
+                JL.HR.Soebrantas,Sidomulyo Bar.,Kec.Tampan,Kota Pekanbaru,Riau 28293
+              </span>
+            </address>
+          </li>
+
+          <li>
+            <a href="tel:+557343673257" class="footer-link">
+              <ion-icon name="call"></ion-icon>
+
+              <span class="footer-link-text">+85825133018</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="mailto:footcap@help.com" class="footer-link">
+              <ion-icon name="mail"></ion-icon>
+
+              <span class="footer-link-text">martcode@gmail.com</span>
+            </a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">My Account</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+
+              <span class="footer-link-text">My Account</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+
+              <span class="footer-link-text">View Cart</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+
+              <span class="footer-link-text">Wishlist</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+
+              <span class="footer-link-text">Compare</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+
+              <span class="footer-link-text">New Products</span>
+            </a>
+          </li>
+
+        </ul>
+
+        
+            </tbody>
+          </table>
+
+       
+      </div>
+
     </div>
+  </div>
 
-    <div class="footer-bottom">
-      <div class="container">
+  <div class="footer-bottom">
+    <div class="container">
 
-        <p class="copyright">
-          &copy; 2022 <a href="#" class="copyright-link">codewithsadee</a>. All Rights Reserved
-        </p>
+      <p class="copyright">
+        &copy; 2024 <a href="#" class="copyright-link">Martcode</a>
+      </p>
+
 
       </div>
     </div>

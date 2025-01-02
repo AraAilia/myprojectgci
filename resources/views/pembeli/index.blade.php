@@ -14,12 +14,13 @@
   <!-- 
     - custom css link
   -->
-  <link rel="stylesheet" href="assets/css/style_home.css">
+  <link rel="stylesheet" href={{ asset('assets/css/style_home.css') }}>
+
   
   <!-- 
     - google font link
   -->
- crossorigin> <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
     rel="stylesheet">
 
   <!-- 
@@ -89,7 +90,7 @@
       <div class="overlay" data-overlay></div>
 
       <a href="#" class="logo">
-        <img src="./assets/images/logomm.jpg" width="160" height="50" alt="Martcode logo">
+        <img src={{ asset ("assets/images/logomm.jpg") }} width="160" height="50" alt="Martcode logo">
       </a>
 
       <button class="nav-open-btn" data-nav-open-btn aria-label="Open Menu">
@@ -103,18 +104,18 @@
         </button>
 
         <a href="#" class="logo">
-          <img src="./assets/images/logomm.jpg" width="190" height="50" alt="Martcode logo">
+          <img src={{ asset ("asset/assets/images/logomm.jpg") }} width="190" height="50" alt="Martcode logo">
         </a>
 
         <ul class="navbar-list">
           <li class="navbar-item">
-            <a href="home" class="navbar-link">Home</a>
+            <a href="pembeli" class="navbar-link">Home</a>
           </li>
           <li class="navbar-item">
-            <a href="kategori" class="navbar-link">Kategori</a>
+            <a href="pembeli/kategori" class="navbar-link">Kategori</a>
           </li>
           <li class="navbar-item">
-            <a href="product" class="navbar-link">Download</a>
+            <a href="unduh" class="navbar-link">Download</a>
           </li>
           <li class="navbar-item">
             <a href="mulaimenjual" class="navbar-link">Mulai Menjual</a>
@@ -161,15 +162,31 @@
   }
 </script>
 
-          <li>
-            <a href="/login" class="nav-action-btn">
+<li class="profile-item">
+  @if (auth()->check())
+  <div style="text-align: center; width: 100%; margin-top: 20px;">
+    <b style="font-weight: bold;">Profil</b>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
+</div>
+      </form>
+      <div class="profile-dropdown">
+          <a href="{{ route('dashboard') }}" class="nav-action-btn">
               <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
-              @if (auth()->check())
+              <span>Akun Saya</span> <!-- Teks tetap 'Akun Saya' -->
+          </a>
+          <a href="pembeli.index" class="nav-action-btn" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+              <ion-icon name="exit-outline" aria-hidden="true"></ion-icon>
               <span>Logout</span>
-                  
-              @else
-              <span>Login / Register</span>
-                  
+          </a>
+      </div>     
+    </a>
+@else
+    <a href="/login" class="nav-action-btn">
+        <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+        <span>Login</span>
+    </a>
               @endif
             </a>
           </li>
@@ -195,7 +212,7 @@
  
   <div class="container d-flex justify-content-center" style="margin-top: 20px;"> <!-- Jarak dengan navbar -->
     <form class="search-form d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search Products" aria-label="Search">
+      <input class="form-control me-2" type="search" placeholder="Search Products" aria-label="Search" style="font-size: 20px">
       <button class="btn btn-primary" type="submit">Search</button>
     </form>
   </div>
@@ -212,9 +229,10 @@
             </li>
 
             <li>
-              <button class="filter-btn">Blog</button>
+              <a href="{{ url('pembeli/kategori') }}">
+                <button class="filter-btn">Blog</button>
+              </a>
             </li>
-
             <li>
               <button class="filter-btn">Website Bisnis</button>
             </li>
@@ -239,7 +257,7 @@
               <div class="product-card" tabindex="0">
 
                 <figure class="card-banner">
-                  <img src="./assets/images/webschool.jpg" width="312" height="350" loading="lazy"
+                  <img src= {{ asset ("assets/images/webschool.jpg")}} width="312" height="350" loading="lazy"
                     alt="Website Pendidikan" class="image-contain">
 
                   <div class="card-badge">New</div>
@@ -291,8 +309,8 @@
               <div class="product-card" tabindex="0">
 
                 <figure class="card-banner">
-                  <img src="./assets/images/portal.jpg" width="312" height="350" loading="lazy"
-                    alt=" " class="image-contain">
+                  <img src={{ asset ("/assets/images/portal.jpg") }} width="312" height="350" loading="lazy"
+                    alt="Portal Berita" class="image-contain">
 
                   <ul class="card-action-list">
 
@@ -344,8 +362,8 @@
               <div class="product-card" tabindex="0">
 
                 <figure class="card-banner">
-                  <img src="./assets/images/ecom.jpg" width="312" height="350" loading="lazy"
-                    alt="Simple Fabric Shoe" class="image-contain">
+                  <img src={{ asset("assets/images/ecom.jpg") }} width="312" height="350" loading="lazy"
+                    alt="Ecommerce" class="image-contain">
 
                   <div class="card-badge">New</div>
 
@@ -399,8 +417,8 @@
               <div class="product-card" tabindex="0">
 
                 <figure class="card-banner">
-                  <img src="./assets/images/bussi.jpg" width="312" height="350" loading="lazy"
-                    alt="Air Jordan 7 Retro " class="image-contain">
+                  <img src={{asset("assets/images/bussi.jpg")  }} width="312" height="350" loading="lazy"
+                    alt="Website Bisnis" class="image-contain">
 
                   <div class="card-badge"> -25%</div>
 
@@ -580,7 +598,7 @@
         </div>
       </section>
       
-    - favicon
+   <!--favicon
   -->
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
 
