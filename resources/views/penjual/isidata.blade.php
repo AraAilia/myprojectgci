@@ -99,9 +99,9 @@
 
   <div class="container">
     <h2>Isi Data Diri</h2>
-    <form>
       <form id="isidata" action="{{ route('penjual.store') }}" method="POST">
-      @csrf
+        @csrf
+    
       <div class="form-group">
         <label for="nama">Nama Lengkap:</label>
         <input type="text" id="nama" name="nama" placeholder="Masukkan Nama Anda" required>

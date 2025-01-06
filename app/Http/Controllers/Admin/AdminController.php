@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Models\User;
 use App\Models\Produk;
 use App\Models\Penjual;
@@ -11,28 +12,33 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('adminViews.dashboard');
     }
 
-    public function users(){
+    public function users()
+    {
         $users = User::all();
-        return view('adminViews.users',compact('users'));
+        return view('adminViews.users', compact('users'));
     }
-    public function kategoriproduk() {
-        $kategoris = Kategori::all(); // Mengambil semua data kategori
-        return view('adminViews.kategoriproduk', compact('kategoris')); // Mengirimkan data ke view
-    }
-
-    public function produk(){
-    $produk = Produk::all();
-    return view('adminViews.produk',compact('produk'));  
+    public function kategoriproduk()
+    {
+        $kategori = Kategori::all(); // Mengambil semua data kategori
+        return view('Penjual.unggah', compact('kategori'));
     }
 
-    public function penjual(){
+    public function produk()
+    {
+        $produk = Produk::all();
+        return view('adminViews.produk', compact('produk'));
+    }
+
+    public function penjual()
+    {
         $pengaturan = Penjual::all();
-        return view('adminViews.penjual',compact('penjual'));  
-        }
+        return view('adminViews.penjual', compact('penjual'));
+    }
 
     public function update(Request $request, $id)
     {
@@ -52,6 +58,4 @@ class AdminController extends Controller
         // Mengembalikan respons JSON yang sukses
         return redirect()->back()->with('success');
     }
-    
-
 }

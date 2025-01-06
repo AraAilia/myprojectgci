@@ -69,21 +69,55 @@
     </div>
   </header>
 
-
-  <div class="container">
-      <h1>Profil Penjual</h1>
-      <p><strong>Nama:</strong> {{ $penjual->nama }}</p>
-      <p><strong>Toko:</strong> {{ $penjual->toko }}</p>
-      <p><strong>Nomor HP:</strong> {{ $penjual->nomor_hp }}</p>
-      <p><strong>Bank:</strong> {{ $penjual->bank }}</p>
-      <p><strong>No Rekening:</strong> {{ $penjual->no_rekening }}</p>
-      <a href="/edit-profil">Edit Profil</a>
-  </div>
-
   
+  <form action="{{ route('profil.store') }}" method="POST" style="max-width: 500px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+    @csrf
+    <h3 style="text-align: center; margin-bottom: 20px;">Form Data Diri</h3>
+
+    <!-- Nama -->
+    <div style="margin-bottom: 15px;">
+        <label for="nama" style="display: block; margin-bottom: 5px;">Nama</label>
+        <input type="text" id="nama" name="nama" class="form-control" placeholder="Masukkan nama Anda" required
+            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+    </div>
+
+    <!-- Nama Toko -->
+    <div style="margin-bottom: 15px;">
+        <label for="toko" style="display: block; margin-bottom: 5px;">Nama Toko</label>
+        <input type="text" id="toko" name="toko" class="form-control" placeholder="Masukkan nama toko" required
+            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+    </div>
+
+    <!-- Nomor HP -->
+    <div style="margin-bottom: 15px;">
+        <label for="nomor_hp" style="display: block; margin-bottom: 5px;">Nomor HP</label>
+        <input type="text" id="nomor_hp" name="nomor_hp" class="form-control" placeholder="Masukkan nomor HP" required
+            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+    </div>
+
+    <!-- Bank -->
+    <div style="margin-bottom: 15px;">
+        <label for="bank" style="display: block; margin-bottom: 5px;">Bank</label>
+        <input type="text" id="bank" name="bank" class="form-control" placeholder="Masukkan nama bank" required
+            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+    </div>
+
+    <!-- Nomor Rekening -->
+    <div style="margin-bottom: 20px;">
+        <label for="no_rekening" style="display: block; margin-bottom: 5px;">Nomor Rekening</label>
+        <input type="text" id="no_rekening" name="no_rekening" class="form-control" placeholder="Masukkan nomor rekening" required
+            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+    </div>
+
+    <!-- Tombol Submit -->
+    <div style="text-align: center;">
+        <button type="submit" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Simpan Data
+        </button>
+    </div>
+</form>
   
 
-  
 <!-- custom css link -->
 <link rel="stylesheet" href="assets/css/style_home.css">
 

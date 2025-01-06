@@ -109,16 +109,16 @@
 
         <ul class="navbar-list">
           <li class="navbar-item">
-            <a href="pembeli" class="navbar-link">Home</a>
+            <a href="#" class="navbar-link">Home</a>
           </li>
           <li class="navbar-item">
-            <a href="pembeli/kategori" class="navbar-link">Kategori</a>
+            <a href="/kategori" class="navbar-link">Kategori</a>
           </li>
           <li class="navbar-item">
-            <a href="unduh" class="navbar-link">Download</a>
+            <a href="/unduh" class="navbar-link">Download</a>
           </li>
           <li class="navbar-item">
-            <a href="mulaimenjual" class="navbar-link">Mulai Menjual</a>
+            <a href="/mulaimenjual" class="navbar-link">Mulai Menjual</a>
           </li>
         </ul>
       

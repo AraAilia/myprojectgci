@@ -16,16 +16,8 @@
   -->
   <link rel="stylesheet" href="assets/css/style_home.css">
 
-  <!-- 
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
-    rel="stylesheet">
-    
-
+  
+  
   <!-- 
     - preload banner
   -->
@@ -70,22 +62,6 @@
           <img src="./assets/images/logo.svg" width="190" height="50" alt="Footcap logo">
         </a>
 
-        <ul class="navbar-list">
-          <ul class="navbar-list">
-            <li class="navbar-item">
-              <a href="pembeli" class="navbar-link">Home</a>
-            </li>
-            <li class="navbar-item">
-              <a href="pembeli/kategori" class="navbar-link">Kategori</a>
-            </li>
-            <li class="navbar-item">
-              <a href="unduh" class="navbar-link">Download</a>
-            </li>
-            <li class="navbar-item">
-              <a href="mulaimenjual" class="navbar-link">Mulai Menjual</a>
-            </li>
-          </ul>
-          <ul class="nav-action-list">
             <li>
               <li class="profile-item">
                 @if (auth()->check())

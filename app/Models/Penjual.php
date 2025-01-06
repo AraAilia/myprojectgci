@@ -3,15 +3,20 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Penjual extends Model
 {
     protected $table='penjual';
-    protected $fillable=['user_id','nama','toko','nomor_hp','bank','no_rekening'];
+    use HasFactory;
 
-    public function produk()
-    {
-        return $this -> hasMany(Produk::class,'penjual_id');
-    }
+    protected $fillable = [
+        'nama',
+        'toko',
+        'nomor_hp',
+        'bank',
+        'no_rekening',
+        'user_id',
+    ];
 
 }

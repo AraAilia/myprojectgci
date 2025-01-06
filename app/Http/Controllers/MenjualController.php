@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Penjual;
 use App\Models\User;
+use App\Models\Produk;
 
 class MenjualController extends Controller
 {
@@ -27,40 +28,13 @@ class MenjualController extends Controller
     }
     public function menjual()
     {
-        return view('penjual.menjual');
-    }
-    
-    public function isidata()
-    {
-        return view('penjual.isidata');
-    }
-    
-    
-    public function store(Request $request)
-    {
-        // Validasi input
-        $request->validate([
-            'nama' => 'required|string|max:255',
-            'nama_toko' => 'required|string|max:255',
-            'no_hp' => 'required|digits_between:10,15', // Validasi nomor HP
-            'bank' => 'required|string|max:100',
-            'no_rek' => 'required|numeric',
-        ]);
+        $produk = Produk::paginate(10);
 
-        // Simpan data ke database
-        $userDetail = new Penjual();
-        $userDetail->user_id = Auth::id(); // Ambil user_id dari user yang sedang login
-        $userDetail ->nama = $request->input('nama');
-        $userDetail->toko = $request->input('toko');
-        $userDetail->nomor_hp = $request->input('nomor_hp');
-        $userDetail->bank = $request->input('bank');
-        $userDetail->no_rekening = $request->input('no_rekening');
-        $userDetail->save();
-
-        // Return response
-        return response()->json([
-            'message' => 'Data berhasil ditambahkan',
-            'data' => $userDetail
-        ], 201);
+        return view('penjual.menjual', compact('produk'));
     }
+    
+    
+    
+   
+    
 }

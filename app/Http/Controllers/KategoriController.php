@@ -6,15 +6,6 @@ use App\Models\Kategori;
 
 class KategoriController extends Controller
 {
-    
-   // Tampilkan halaman kategori
-   public function index()
-   {
-       $kategori = Kategori::all() ?: collect(); 
-       ($kategori);
-       return view('adminViews.kategoriproduk', compact('kategori'));
-     
-   }
    // Simpan kategori baru
    public function store(Request $request)
    {
@@ -37,7 +28,14 @@ class KategoriController extends Controller
 
        return redirect()->route('kategori.index')->with('success', 'Kategori berhasil dihapus!');
    }
-
+   public function index()
+   {
+       // Mengambil semua kategori dari database
+       $kategori = Kategori::all(); // Ambil data kategori dari tabel kategori
+       
+       // Mengirim data kategori ke view
+       return view('frontend.form', compact('kategori'));
+   }
    // Tampilkan form edit kategori
    public function edit($id)
    {

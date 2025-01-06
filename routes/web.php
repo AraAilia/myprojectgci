@@ -26,37 +26,45 @@ Route::get('/home',[HomeController::class,'pembeli.index']);
 Route::get('/pembeli', [PembeliController::class, 'index']);
 Route::get('/kategori',[PembeliController::class,'kategori']);
 Route::get('/jadipenjual',[PembeliController::class,'jadipenjual']);
-Route::get('/mulaimenjual',[PembeliController::class,'mulaimenjual']);
+Route::get('/mulaimenjual',[PembeliController::class,'mulaimenjual'])->name('mulaimenjual');
 Route::get('/unduh',[PembeliController::class,'unduh']);
 
 //redirect index
-Route::get('/pembeli/index', function () {
-    return redirect('/pembeli');
-});
+//Route::get('/pembeli/index', function () {
+//    return redirect('/pembeli');
+//});
 
 //Edit Profil pembeli
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 
 
 //perintah untuk profil
-Route::post('/datadiri', [ProfileController::class, 'store'])->name('profil.store');
+Route::get('/isidata',[ProfileController::class,'isidata'])->name('isidata.form');
+Route::post('/datadiri', [ProfileController::class, 'store'])->name('penjual.store');
+
+//perintah untuk produk 
+Route::post('/produk/store', [ProdukController::class, 'store'])->name('produk.store');
+Route::get('/unggah', [ProdukController::class, 'unggah'])->name('unggah.form');
+Route::get('/produk/create', [ProdukController::class, 'create'])->name('produk.create');
 
 
 
 //perintah untuk penjual
 
-Route::get('/penjual',[MenjualController::class,'index']);
-Route::get('/menjual',[MenjualController::class,'menjual']);
+Route::get('/penjual', [MenjualController::class, 'index'])->name('penjual.index');
+
+Route::get('/menjual',[MenjualController::class,'menjual'])->name('penjual.menjual');
 Route::get('/datadiri',[MenjualController::class,'datadiri']);
-Route::get('/isidata',[MenjualController::class,'isidata'])->name('isidata.form');
-Route::post('/isidata',[MenjualController::class,'store'])->name('isidata.post');
 Route::get('/ulasan',[MenjualController::class,'ulasan']);
+Route::get('/unggah', [MenjualController::class, 'unggah'])->name('penjual.unggah');
+Route::get('/produk/menjual', [ProdukController::class, 'menjual'])->name('produk.menjual');
+Route::post('/produk/store', [ProdukController::class, 'store'])->name('produk.store');
 
-//perintah untuk produk 
-route::get('/unggah',[ProdukController::class,'index']);
+//Route::get('/produk/edit/{id}', [ProdukController::class, 'edit'])->name('produk.edit');
+Route::post('/produk/update/{id}', [ProdukController::class, 'update'])->name('produk.update');
+Route::delete('/produk/delete/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');
+Route::get('/penjual/produk/{id}/edit', [ProdukController::class, 'edit'])->name('penjual.edit');
 
-//rachel
-route::post('/penjual/store',[ProfileController::class,'store'])->name('penjual.store');
 
 //Perintah untuk admin
 require __DIR__.'/auth.php';
@@ -87,7 +95,7 @@ Route::get('/admin/dashboard/barang',function(){
 });
 
 Route::get('/admin/dashboard/users',[AdminController::class,'users']);
-Route::get('/admin/dashboard/kategoriproduk',[AdminController::class,'kategoriproduk']);
+Route::get('/admin/kategori-produk',[AdminController::class,'kategoriproduk'])->name('admin.kategoriproduk');
 Route::put('/users/{id}/update',[AdminController::class,'update'])->name('users-update');
 Route::get('/admin/dashboard/produk',function(){
     return view('adminViews.components.produk');});
@@ -143,6 +151,8 @@ Route::delete('/kategori/{id}', [KategoriController::class, 'destroy'])->name('k
 Route::get('/kategoriproduk/{id}/edit', [KategoriController::class, 'edit'])->name('kategori.edit');
 Route::put('/kategori/{id}', [KategoriController::class, 'update'])->name('kategori.update');
 Route::resource('kategori', KategoriController::class);
+
+
 
 
 
